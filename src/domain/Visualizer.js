@@ -1,7 +1,7 @@
 import styles from './Visualizer.css'
 import  { animated as a, useSpring } from 'react-spring'
 
-export function Visualizer({ active, config, layoutClassName }) {
+export function Visualizer({ active, config, onClick, layoutClassName }) {
   const { progress } = useSpring({
     from: { progress: 0 },
     progress: active ? 1 : 0,
@@ -9,7 +9,7 @@ export function Visualizer({ active, config, layoutClassName }) {
   })
 
   return (
-    <figure className={cx(styles.component, layoutClassName)}>
+    <figure className={cx(styles.component, layoutClassName)} {...{ onClick }}>
       <div className={styles.scalerContainer}>
         <div className={styles.scalerBase}>
           <a.div
