@@ -8,7 +8,7 @@
   "scripts": {
     "start": "npm-run-all --parallel watch serve:dev",
     "watch": "CONFIG_ENV=dev kaliber-watch",
-    "build": "NODE_ENV=production kaliber-build",
+    "build": "NODE_ENV=production CONFIG_ENV=prd kaliber-build",
     "serve": "kaliber-serve",
     "serve:dev": "PORT=8000 CONFIG_ENV=dev kaliber-serve",
     "lint": "npm-run-all --serial lint.javascript lint.styles",
