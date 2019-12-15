@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "@kaliber/build": "file:../build/library",
+    "@kaliber/build": "0.0.99",
     "react-spring": "^8.0.27",
     "use-clipboard-copy": "^0.1.1",
     "use-persisted-state": "^0.3.0"
