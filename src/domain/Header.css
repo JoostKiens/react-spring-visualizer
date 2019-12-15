@@ -8,6 +8,7 @@
 .link {
   color: black;
   text-decoration: black wavy underline;
+  text-decoration-skip-ink: none;
   position: relative;
   z-index: 0;
   font-weight: 700;
