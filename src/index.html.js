@@ -3,7 +3,6 @@ import '/index.css'
 import stylesheet from '@kaliber/build/lib/stylesheet'
 import javascript from '@kaliber/build/lib/javascript'
 import polyfill from '@kaliber/build/lib/polyfill'
-import config from '@kaliber/config'
 import App from '/domain/App?universal'
 
 Index.routes = {
@@ -26,6 +25,15 @@ export default function Index({ location, data }) {
         {stylesheet}
         {polyfill(['default', 'es2015', 'es2016', 'es2017', 'es2018', 'es2019'])}
         {javascript}
+        <link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png" />
+        <link rel="manifest" href="/static/site.webmanifest" />
+        <link rel="mask-icon" href="/static/safari-pinned-tab.svg" color="#ffff00" />
+        <link rel="shortcut icon" href="/static/favicon.ico" />
+        <meta name="msapplication-TileColor" content="#ffff00" />
+        <meta name="msapplication-config" content="/static/browserconfig.xml" />
+        <meta name="theme-color" content="#ffff00" />
       </head>
       <body>
         {data && data.notFound
