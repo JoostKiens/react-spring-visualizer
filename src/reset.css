@@ -1,0 +1,33 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  &:not(:last-child) { padding-bottom: 0.8333em; }
+}
+
+address { font-style: normal; }
+
+button {
+  background-color: transparent;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  color: currentColor;
+}
+
+input,
+button,
+select {
+  font-family: inherit;
+  font-size: inherit;
+}

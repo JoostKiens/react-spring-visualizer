@@ -1,0 +1,16 @@
+*,
+*::before,
+*::after { box-sizing: inherit; }
+
+html {
+  box-sizing: border-box;
+  overflow-y: scroll;
+}
+
+body {
+  background-color: yellow;
+  color: black;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-base);
+}

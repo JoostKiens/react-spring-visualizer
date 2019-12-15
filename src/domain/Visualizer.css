@@ -1,0 +1,53 @@
+.component {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+
+  & > .scalerContainer {
+    flex-grow: 1;
+  }
+}
+
+.scalerContainer {
+  border: 3px dashed black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  & > .scalerBase {
+    width: 50%;
+    height: 50%;
+  }
+}
+
+.scalerBase {
+  border: 1px solid yellow;
+  outline: 3px solid black;
+
+  & > .scaler {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.scaler {
+  transform-origin: bottom left;
+  background-color: black;
+  will-change: transform;
+  mix-blend-mode: exclusion;
+  transform: scale(1.5);
+}
+
+.legend {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tick {
+  width: 0 !important;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  position: relative;
+  height: 40px !important;
+}

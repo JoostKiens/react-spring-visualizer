@@ -1,0 +1,32 @@
+.app {
+  display: flex;
+  justify-content: center;
+
+  & > .layout {
+    max-width: 1000px;
+    width: 100%;
+  }
+}
+
+.layout {
+  padding: 30px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: min-content min-content 400px min-content;
+  grid-template-areas: "header" "form" "visualizer" "output";
+  grid-gap: 30px;
+
+
+  @media (--viewport-md) {
+    grid-template-areas: "header header" "form visualizer" "form output";
+    grid-template-rows: min-content minmax(400px, 1fr) min-content;
+    grid-template-columns: min-content 1fr;
+    padding: 40px;
+    grid-gap: 40px;
+  }
+
+  & > .header { grid-area: header; }
+  & > .form { grid-area: form; }
+  & > .visualizer { grid-area: visualizer; }
+  & > .output { grid-area: output; }
+}

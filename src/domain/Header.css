@@ -1,0 +1,14 @@
+.component { text-align: center; }
+
+.heading {
+  font-weight: 700;
+  @media (--viewport-md) { font-size: 3rem; }
+}
+
+.link {
+  color: black;
+  text-decoration: black wavy underline;
+  position: relative;
+  z-index: 0;
+  font-weight: 700;
+}

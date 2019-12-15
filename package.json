@@ -1,0 +1,21 @@
+{
+  "dependencies": {
+    "@kaliber/build": "file:../build/library",
+    "react-spring": "^8.0.27",
+    "use-clipboard-copy": "^0.1.1",
+    "use-persisted-state": "^0.3.0"
+  },
+  "scripts": {
+    "start": "npm-run-all --parallel watch serve:dev",
+    "watch": "CONFIG_ENV=dev kaliber-watch",
+    "build": "NODE_ENV=production kaliber-build",
+    "serve": "kaliber-serve",
+    "serve:dev": "PORT=8000 CONFIG_ENV=dev kaliber-serve",
+    "lint": "npm-run-all --serial lint.javascript lint.styles",
+    "lint.javascript": "eslint -c .eslintrc --ignore-path .gitignore './**/*.js'",
+    "lint.styles": "stylelint --config .stylelintrc --ignore-path .gitignore './**/*.css'"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5"
+  }
+}

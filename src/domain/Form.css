@@ -1,0 +1,197 @@
+@value _inputWidth: 100%;
+@value _inputWidthMd: 120%;
+@value _inputHeight: 40px;
+
+.component {
+  display: grid;
+  grid-template-columns: minmax(100px, auto) minmax(100px, auto);
+  grid-template-rows: 1fr 1fr 1fr min-content;
+  grid-template-areas: ". ." ". ." ". ." "button button";
+  grid-gap: 20px;
+  align-content: center;
+
+  @media (--viewport-md) {
+    grid-template-columns: minmax(200px, auto);
+    grid-template-rows: repeat(7, min-content);
+    grid-template-areas: "." "." "." "." "." "." "button";
+  }
+
+  & > .inputGroup { width: 100%; }
+  & > .buttonGroup { grid-area: button; }
+}
+
+.componentInputNumberGroup {
+  display: block;
+  & > *:not(:last-child) { margin-bottom: 10px; }
+
+  & > .numberInput {
+    width: 100%;
+    height: _inputHeight;
+  }
+
+  & > .range { width: 100%; }
+}
+
+.numberInput {
+  border: 2px solid black;
+  padding: 6px;
+}
+
+.numberLabel { display: block; }
+
+.componentCheckboxGroup {
+  display: flex;
+  align-items: center;
+  & > .checkboxLabel { width: 100%; }
+}
+
+.checkboxInput {
+  display: none;
+  &:checked + .checkboxLabel::after { content: '✓'; }
+}
+
+.checkboxLabel {
+  line-height: _inputHeight;
+  position: relative;
+  display: block;
+
+  &::before,
+  &::after {
+    display: block;
+    position: absolute;
+    content: '';
+    width: _inputHeight;
+    height: _inputHeight;
+    right: 0;
+    bottom: 0;
+  }
+
+  &::after {
+    font-size: 2em;
+    line-height: _inputHeight;
+    text-align: center;
+  }
+
+  &::before { border: 2px solid black; }
+}
+
+.buttonGroup {
+  display: flex;
+  & > *:not(:last-child) { margin-right: 20px; }
+
+
+  & > .submitButton { flex-grow: 1; }
+  & > .copyToClipboard { width: _inputHeight; }
+}
+
+.componentCopyToClipboard,
+.submitButton {
+  display: block;
+  height: _inputHeight !important;
+  background-color: black;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 3px solid black;
+    transform-origin: top left;
+    transition-timing-function: cubic-bezier(0.6, -0.28, 0.735, 0.045);
+    transition-property: transform;
+    transition-duration: 200ms;
+    will-change: transform;
+  }
+
+  &:hover,
+  &:focus {
+    &::after {
+      transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      transform: translate(6px, 6px);
+      transition-duration: 275ms;
+    }
+  }
+}
+
+.submitButton {
+  color: white;
+  padding: 0 6px;
+}
+
+.componentCopyToClipboard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  fill: white;
+
+  & > svg { width: 16px; }
+}
+
+/* from http://danielstern.ca/range.css/ */
+.range {
+  -webkit-appearance: none;
+  cursor: pointer;
+
+  &::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 10px;
+    background-color: #000;
+  }
+
+  &::-moz-range-track {
+    width: 100%;
+    height: 10px;
+    background-color: #000;
+    border-radius: 0;
+  }
+
+  &::-webkit-slider-thumb {
+    border: 3px solid #000;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: #fff;
+    -webkit-appearance: none;
+    margin-top: -5px;
+  }
+
+  &::-moz-range-thumb {
+    border: 3px solid #000;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: #fff;
+  }
+
+  &::-ms-thumb {
+    border: 3px solid #000;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: #fff;
+  }
+
+  &::-ms-track {
+    width: 100%;
+    height: 10px;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+  }
+
+  &::-ms-fill-upper {
+    background: #000;
+    border-radius: 0;
+  }
+
+  &::-ms-fill-lower {
+    background: #000;
+    border-radius: 0;
+  }
+}

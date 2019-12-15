@@ -1,0 +1,11 @@
+:export {
+  breakpointSm: 500px;
+  breakpointMd: 768px;
+  breakpointLg: 960px;
+  breakpointXl: 1170px;
+}
+
+@custom-media --viewport-sm screen and (min-width: 500px);
+@custom-media --viewport-md screen and (min-width: 768px);
+@custom-media --viewport-lg screen and (min-width: 960px);
+@custom-media --viewport-xl screen and (min-width: 1170px);
