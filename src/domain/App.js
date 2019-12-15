@@ -1,6 +1,5 @@
 import { Form } from './Form'
 import { Visualizer } from './Visualizer'
-import { Output } from './Output'
 import { Header } from './Header'
 import createPersistedState from 'use-persisted-state'
 import styles from './App.css'
@@ -28,7 +27,6 @@ export default function App() {
         <Header layoutClassName={styles.header} />
         <Form onSubmit={play} layoutClassName={styles.form} {...{ formState }} />
         <Visualizer config={formState[0]} onClick={play} layoutClassName={styles.visualizer} {...{ active }} />
-        <Output config={formState[0]} layoutClassName={styles.output} />
       </div>
     </div>
   )
