@@ -15,7 +15,7 @@ export default function App() {
 
   const play = React.useCallback(
     evt => {
-      evt.preventDefault()
+      evt && evt.preventDefault()
       setActive(x => !x)
     },
     [setActive]

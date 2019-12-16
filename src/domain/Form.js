@@ -4,7 +4,7 @@ import styles from './Form.css'
 export function Form({ onSubmit, formState, layoutClassName }) {
   return (
     <form {...{ onSubmit }} className={cx(styles.component, layoutClassName)}>
-      <Presets layoutClassName={styles.presets} {...{ formState }} />
+      <Presets layoutClassName={styles.presets} {...{ formState, onSubmit }} />
       <InputNumberGroup
         name='mass' label='Mass' layoutClassName={styles.inputGroup}
         min={0} max={20} step={0.1} {...{ formState }}
@@ -88,11 +88,16 @@ function CopyToClipboard({ layoutClassName, config }) {
   )
 }
 
-function Presets({ formState, layoutClassName }) {
+function Presets({ formState, layoutClassName, onSubmit }) {
   const [formValues, setFormValues] = React.useMemo(() => formState, [formState])
   const handleChange = React.useCallback(
-    ({ target: { value } }) => { value && setFormValues(x => ({ ...x, ...JSON.parse(value) })) },
-    [setFormValues]
+    ({ target: { value } }) => {
+      if (value) {
+        setFormValues(x => ({ ...x, ...JSON.parse(value) }))
+        onSubmit()
+      }
+    },
+    [setFormValues, onSubmit]
   )
 
   const value = React.useMemo(
