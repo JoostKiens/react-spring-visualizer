@@ -6,17 +6,19 @@
   display: grid;
   grid-template-columns: minmax(100px, auto) minmax(100px, auto);
   grid-template-rows: 1fr 1fr 1fr min-content;
-  grid-template-areas: ". ." ". ." ". ." "button button";
+  grid-template-areas: "presets presets" ". ." ". ." ". ." "button button";
   grid-gap: 20px;
   align-content: center;
 
   @media (--viewport-md) {
     grid-template-columns: minmax(200px, auto);
-    grid-template-rows: repeat(7, min-content);
-    grid-template-areas: "." "." "." "." "." "." "button";
+    grid-template-rows: repeat(8, min-content);
+    grid-template-areas: "presets" "." "." "." "." "." "." "." "button";
+    grid-gap: 30px;
   }
 
   & > .inputGroup { width: 100%; }
+  & > .presets { grid-area: presets; }
   & > .buttonGroup { grid-area: button; }
 }
 
