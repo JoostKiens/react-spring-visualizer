@@ -8,7 +8,7 @@
   grid-template-rows: 1fr 1fr 1fr min-content;
   grid-template-areas: "presets presets" ". ." ". ." ". ." "button button";
   grid-gap: 20px;
-  align-content: center;
+  align-content: start;
 
   @media (--viewport-md) {
     grid-template-columns: minmax(200px, auto);
@@ -23,11 +23,15 @@
 }
 
 .componentInputNumberGroup {
-  display: block;
-  & > *:not(:last-child) { margin-bottom: 10px; }
+  display: flex;
+  flex-wrap: wrap;
+  & > *:not(:last-child) { margin-bottom: 14px; }
 
+  & > .numberLabel {
+    width: 60%;
+  }
   & > .numberInput {
-    width: 100%;
+    width: 40%;
     height: _inputHeight;
   }
 
@@ -74,14 +78,15 @@
     text-align: center;
   }
 
-  &::before { border: 2px solid var(--color-plantation); }
+  &::before {
+    border: border: 2px solid var(--color-plantation);
+    background-color: white;
+  }
 }
 
 .buttonGroup {
   display: flex;
   & > *:not(:last-child) { margin-right: 20px; }
-
-
   & > .submitButton { flex-grow: 1; }
   & > .copyToClipboard { width: _inputHeight; }
 }

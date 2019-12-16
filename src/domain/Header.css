@@ -8,6 +8,7 @@
 .link {
   color: var(--color-plantation);
   text-decoration: var(--color-plantation) wavy underline;
+  text-decoration-skip-ink: none;
   position: relative;
   z-index: 0;
   font-weight: 700;

@@ -1,6 +1,5 @@
 import { Form } from './Form'
 import { Visualizer } from './Visualizer'
-import { Output } from './Output'
 import { Header } from './Header'
 import createPersistedState from 'use-persisted-state'
 import styles from './App.css'
@@ -14,7 +13,7 @@ export default function App() {
     clamp: false, precision: 0.01, velocity: 0
   })
 
-  const handleSubmit = React.useCallback(
+  const play = React.useCallback(
     evt => {
       evt.preventDefault()
       setActive(x => !x)
@@ -26,9 +25,8 @@ export default function App() {
     <div className={styles.app}>
       <div className={styles.layout}>
         <Header layoutClassName={styles.header} />
-        <Form onSubmit={handleSubmit} layoutClassName={styles.form} {...{ formState }} />
-        <Visualizer config={formState[0]} layoutClassName={styles.visualizer} {...{ active }} />
-        <Output config={formState[0]} layoutClassName={styles.output} />
+        <Form onSubmit={play} layoutClassName={styles.form} {...{ formState }} />
+        <Visualizer config={formState[0]} onClick={play} layoutClassName={styles.visualizer} {...{ active }} />
       </div>
     </div>
   )
