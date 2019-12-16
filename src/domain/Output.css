@@ -1,5 +1,5 @@
 .component {
-  border: 3px dashed black;
+  border: 3px dashed var(--color-plantation);
   padding: 20px;
   font-size: 14px;
 }
