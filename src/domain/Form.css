@@ -79,7 +79,7 @@
   }
 
   &::before {
-    border: border: 2px solid var(--color-plantation);
+    border: 2px solid var(--color-plantation);
     background-color: white;
   }
 }
