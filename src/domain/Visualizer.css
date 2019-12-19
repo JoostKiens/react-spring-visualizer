@@ -10,7 +10,7 @@
 }
 
 .scalerContainer {
-  border: 3px dashed black;
+  border: 3px dashed var(--color-plantation);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -22,8 +22,8 @@
 }
 
 .scalerBase {
-  border: 1px solid yellow;
-  outline: 3px solid black;
+  border: 1px solid var(--color-goldenrod);
+  outline: 3px solid var(--color-plantation);
 
   & > .scaler {
     width: 100%;
@@ -33,7 +33,7 @@
 
 .scaler {
   transform-origin: bottom left;
-  background-color: black;
+  background-color: var(--color-plantation);
   will-change: transform;
   mix-blend-mode: exclusion;
   transform: scale(1.5);

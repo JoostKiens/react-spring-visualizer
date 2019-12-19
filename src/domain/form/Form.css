@@ -1,0 +1,30 @@
+@value _inputWidth: 100%;
+@value _inputWidthMd: 120%;
+@value _inputHeight: 40px;
+
+.component {
+  display: grid;
+  grid-template-columns: minmax(100px, auto) minmax(100px, auto);
+  grid-template-rows: min-content 1fr 1fr 1fr min-content;
+  grid-template-areas: "presets presets" ". ." ". ." ". ." "button button";
+  grid-gap: 20px;
+  align-content: start;
+
+  @media (--viewport-md) {
+    grid-template-columns: minmax(200px, auto);
+    grid-template-rows: repeat(8, min-content);
+    grid-template-areas: "presets" "." "." "." "." "." "." "." "button";
+    grid-gap: 30px;
+  }
+
+  & > .inputGroup { width: 100%; }
+  & > .presets { grid-area: presets; }
+  & > .buttonGroup { grid-area: button; }
+}
+
+.buttonGroup {
+  display: flex;
+  & > *:not(:last-child) { margin-right: 20px; }
+  & > .submitButton { flex-grow: 1; }
+  & > .copyTpClipboard { width: 40px; }
+}

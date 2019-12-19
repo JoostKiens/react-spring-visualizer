@@ -1,0 +1,88 @@
+@value _inputHeight: 40px;
+
+.component {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  & > *:not(:last-child) { margin-bottom: 14px; }
+
+  & > .numberLabel { width: 60%; }
+
+  & > .numberInput {
+    width: 40%;
+    height: _inputHeight;
+  }
+
+  & > .range { width: 100%; }
+}
+
+.numberInput {
+  border: 2px solid var(--color-plantation);
+  background-color: var(--color-barley-white);
+  padding: 6px;
+}
+
+.numberLabel { display: block; }
+
+/* from http://danielstern.ca/range.css/ */
+.range {
+  -webkit-appearance: none;
+  cursor: pointer;
+
+  &::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 10px;
+    background-color: var(--color-plantation);
+  }
+
+  &::-moz-range-track {
+    width: 100%;
+    height: 10px;
+    background-color: var(--color-plantation);
+    border-radius: 0;
+  }
+
+  &::-webkit-slider-thumb {
+    border: 3px solid var(--color-plantation);
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: var(--color-barley-white);
+    -webkit-appearance: none;
+    margin-top: -5px;
+  }
+
+  &::-moz-range-thumb {
+    border: 3px solid var(--color-plantation);
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: var(--color-barley-white);
+  }
+
+  &::-ms-thumb {
+    border: 3px solid var(--color-plantation);
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: var(--color-barley-white);
+  }
+
+  &::-ms-track {
+    width: 100%;
+    height: 10px;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+  }
+
+  &::-ms-fill-upper {
+    background: var(--color-plantation);
+    border-radius: 0;
+  }
+
+  &::-ms-fill-lower {
+    background: var(--color-plantation);
+    border-radius: 0;
+  }
+}

@@ -8,9 +8,11 @@ html {
 }
 
 body {
-  background-color: yellow;
-  color: black;
+  background-color: var(--color-goldenrod);
+  color: var(--color-plantation);
   font-family: var(--font-family-base);
-  font-size: var(--font-size-md);
+  font-size: var(--font-size-sm);
   line-height: var(--line-height-base);
+
+  @media (--viewport-md) { font-size: var(--font-size-md); }
 }

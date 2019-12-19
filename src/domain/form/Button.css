@@ -1,0 +1,39 @@
+@value _inputHeight: 40px;
+
+.component {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-barley-white);
+  height: _inputHeight !important;
+  background-color: var(--color-plantation);
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  width: 40px;
+
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 3px solid var(--color-plantation);
+    transform-origin: top left;
+    transition-timing-function: cubic-bezier(0.6, -0.28, 0.735, 0.045);
+    transition-property: transform;
+    transition-duration: 200ms;
+    will-change: transform;
+  }
+
+  &:hover,
+  &:focus {
+    &::after {
+      transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      transform: translate(6px, 6px);
+      transition-duration: 275ms;
+    }
+  }
+}
