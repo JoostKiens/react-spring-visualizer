@@ -23,7 +23,7 @@ export function Presets({ formState, layoutClassName, onChange }) {
 
   return (
     <>
-      <SrOnly><label htmlFor='preset'>Choose a preset</label></SrOnly>
+      <SrOnly><label htmlFor='presets'>Choose a preset</label></SrOnly>
       <select onChange={handleChange} className={cx(styles.component, layoutClassName)} id='presets' {...{ value }}>
         <option value=''>Presets</option>
         <option value='{"mass":1,"tension":170,"friction":26}'>Default</option>
