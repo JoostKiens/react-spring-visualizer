@@ -774,10 +774,10 @@
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
-"@kaliber/build@0.0.99":
-  version "0.0.99"
-  resolved "https://registry.yarnpkg.com/@kaliber/build/-/build-0.0.99.tgz#d123512d218c4d319380419d68f1666b6bd8315c"
-  integrity sha512-QdV4TUTRAUmASJtiIrYTTai0Opvi7Xiw+FW2lnTqp9a4FTEE18eRAhvC8Sow9L/YcOU1nKV3vsOjQGLpuLTLCw==
+"@kaliber/build@0.0.100":
+  version "0.0.100"
+  resolved "https://registry.yarnpkg.com/@kaliber/build/-/build-0.0.100.tgz#dbf075a1e7901a8db453c4e47ec6dcc39a96feb2"
+  integrity sha512-EN/NebymE4fbmsHb6hprV8XqBFNNhOZb0Z6BiHxSIMsLPEzgILwbusqYTMwEB7P6KzwI51wPXB0bt1L90vI7vQ==
   dependencies:
     "@babel/core" "^7.7.5"
     "@babel/plugin-proposal-class-properties" "^7.5.0"
