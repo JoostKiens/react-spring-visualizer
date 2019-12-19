@@ -10,7 +10,7 @@ export default (
     <head>
       <meta charSet='utf-8' />
       <title>React Spring visualizer</title>
-      <meta name='description' content='' />
+      <meta name='description' content='Visualize your spring config for react-spring.' />
       <meta name='viewport' content='width=device-width, initial-scale=1' />
       <link href='https://fonts.googleapis.com/css?family=Roboto+Mono:400,700&display=swap' rel='stylesheet' />
       {stylesheet}
