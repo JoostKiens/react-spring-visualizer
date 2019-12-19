@@ -1,3 +1,4 @@
+import { SrOnly } from '/machinery/SrOnly'
 import styles from './Presets.css'
 
 export function Presets({ formState, layoutClassName, onChange }) {
@@ -21,14 +22,17 @@ export function Presets({ formState, layoutClassName, onChange }) {
   )
 
   return (
-    <select onChange={handleChange} className={cx(styles.component, layoutClassName)} {...{ value }}>
-      <option value=''>Presets</option>
-      <option value='{"mass":1,"tension":170,"friction":26}'>Default</option>
-      <option value='{"mass":1,"tension":120,"friction":14}'>Gentle</option>
-      <option value='{"mass":1,"tension":180,"friction":12}'>Wobbly</option>
-      <option value='{"mass":1,"tension":210,"friction":20}'>Stiff</option>
-      <option value='{"mass":1,"tension":280,"friction":60}'>Slow</option>
-      <option value='{"mass":1,"tension":280,"friction":120}'>Molasses</option>
-    </select>
+    <>
+      <SrOnly><label htmlFor='preset'>Choose a preset</label></SrOnly>
+      <select onChange={handleChange} className={cx(styles.component, layoutClassName)} id='presets' {...{ value }}>
+        <option value=''>Presets</option>
+        <option value='{"mass":1,"tension":170,"friction":26}'>Default</option>
+        <option value='{"mass":1,"tension":120,"friction":14}'>Gentle</option>
+        <option value='{"mass":1,"tension":180,"friction":12}'>Wobbly</option>
+        <option value='{"mass":1,"tension":210,"friction":20}'>Stiff</option>
+        <option value='{"mass":1,"tension":280,"friction":60}'>Slow</option>
+        <option value='{"mass":1,"tension":280,"friction":120}'>Molasses</option>
+      </select>
+    </>
   )
 }
