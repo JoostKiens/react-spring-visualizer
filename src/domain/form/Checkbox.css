@@ -1,0 +1,49 @@
+@value _inputHeight: 40px;
+
+.component {
+  display: flex;
+  align-items: center;
+  & > .checkboxLabel { width: 100%; }
+}
+
+.checkboxInput {
+  display: none;
+  &:checked + .checkboxLabel::after {
+    transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform: scale(1);
+    transition-duration: 275ms;
+  }
+}
+
+.checkboxLabel {
+  line-height: _inputHeight;
+  position: relative;
+  display: block;
+
+  &::before,
+  &::after {
+    display: block;
+    position: absolute;
+    width: _inputHeight;
+    height: _inputHeight;
+    right: 0;
+    bottom: 0;
+  }
+
+  &::after {
+    font-size: 2.4em;
+    content: '✓';
+    line-height: _inputHeight;
+    text-align: center;
+    transform: scale(0);
+    transition-duration: 225ms;
+    transition-property: transform;
+    transition-timing-function: cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  }
+
+  &::before {
+    content: '';
+    border: 2px solid var(--color-plantation);
+    background-color: var(--color-barley-white);
+  }
+}
