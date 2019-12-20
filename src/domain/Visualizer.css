@@ -35,7 +35,6 @@
   transform-origin: bottom left;
   background-color: var(--color-plantation);
   will-change: transform;
-  mix-blend-mode: exclusion;
   transform: scale(1.5);
 }
 
