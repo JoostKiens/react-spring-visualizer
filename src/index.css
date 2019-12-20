@@ -11,8 +11,9 @@ body {
   background-color: var(--color-goldenrod);
   color: var(--color-plantation);
   font-family: var(--font-family-base);
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-xs);
   line-height: var(--line-height-base);
 
+  @media (--viewport-sm) { font-size: var(--font-size-sm); }
   @media (--viewport-md) { font-size: var(--font-size-md); }
 }

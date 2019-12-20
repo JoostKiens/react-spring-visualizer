@@ -9,12 +9,17 @@
 }
 
 .layout {
-  padding: 30px;
+  padding: 20px;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: min-content min-content 400px;
   grid-template-areas: "header" "form" "visualizer";
-  grid-gap: 30px;
+  grid-gap: 20px;
+
+  @media (--viewport-sm) {
+    padding: 30px;
+    grid-gap: 30px;
+  }
 
   @media (--viewport-md) {
     grid-template-areas: "header header" "form visualizer" "form visualizer";
