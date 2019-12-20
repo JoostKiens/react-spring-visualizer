@@ -14,6 +14,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 100%; /* Safari needs this to calculate the height of its child */
 
   & > .scalerBase {
     width: 50%;
@@ -35,7 +36,6 @@
   transform-origin: bottom left;
   background-color: var(--color-plantation);
   will-change: transform;
-  mix-blend-mode: exclusion;
   transform: scale(1.5);
 }
 

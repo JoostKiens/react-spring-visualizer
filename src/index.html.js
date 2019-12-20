@@ -1,5 +1,6 @@
 import '/reset.css'
 import '/index.css'
+import '/fonts.css'
 import stylesheet from '@kaliber/build/lib/stylesheet'
 import javascript from '@kaliber/build/lib/javascript'
 import polyfill from '@kaliber/build/lib/polyfill'
@@ -12,7 +13,6 @@ export default (
       <title>React Spring visualizer</title>
       <meta name='description' content='Visualize your spring config for react-spring.' />
       <meta name='viewport' content='width=device-width, initial-scale=1' />
-      <link href='https://fonts.googleapis.com/css?family=Roboto+Mono:400,700&display=swap' rel='stylesheet' />
       {stylesheet}
       {polyfill(['default', 'es2015', 'es2016', 'es2017', 'es2018', 'es2019'])}
       {javascript}

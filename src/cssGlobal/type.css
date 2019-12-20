@@ -1,6 +1,7 @@
 :root {
   --font-family-base: 'Roboto Mono', monospace;
   --line-height-base: 1.5;
+  --font-size-xs: 14px;
   --font-size-sm: 16px;
   --font-size-md: 20px;
 }
