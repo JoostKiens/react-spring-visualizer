@@ -28,6 +28,7 @@
 .range {
   -webkit-appearance: none;
   cursor: pointer;
+  background-color: transparent;
 
   &::-webkit-slider-runnable-track {
     width: 100%;
