@@ -13,11 +13,13 @@
   @media (--viewport-md) {
     grid-template-columns: minmax(200px, auto);
     grid-template-rows: repeat(8, min-content);
-    grid-template-areas: "presets" "." "." "." "." "." "." "." "button";
+    grid-template-areas: "presets" "." "." "." "." "." "." "button";
     grid-gap: 30px;
   }
 
-  & > .inputGroup { width: 100%; }
+  & > .checkbox,
+  & > .inputNumber { width: 100%; }
+  /* & > .checkbox { grid-area: pcheckboxresets; } */
   & > .presets { grid-area: presets; }
   & > .buttonGroup { grid-area: button; }
 }
