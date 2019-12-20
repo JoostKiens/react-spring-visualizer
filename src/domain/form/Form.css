@@ -1,7 +1,3 @@
-@value _inputWidth: 100%;
-@value _inputWidthMd: 120%;
-@value _inputHeight: 40px;
-
 .component {
   display: grid;
   grid-template-columns: minmax(100px, auto) minmax(100px, auto);
@@ -19,7 +15,6 @@
 
   & > .checkbox,
   & > .inputNumber { width: 100%; }
-  /* & > .checkbox { grid-area: pcheckboxresets; } */
   & > .presets { grid-area: presets; }
   & > .buttonGroup { grid-area: button; }
 }

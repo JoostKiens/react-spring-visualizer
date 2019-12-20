@@ -1,5 +1,3 @@
-@value _inputHeight: 40px;
-
 .component {
   display: flex;
   align-items: center;
@@ -16,7 +14,7 @@
 }
 
 .checkboxLabel {
-  line-height: _inputHeight;
+  line-height: var(--input-height);
   position: relative;
   display: block;
 
@@ -24,8 +22,8 @@
   &::after {
     display: block;
     position: absolute;
-    width: _inputHeight;
-    height: _inputHeight;
+    width: var(--input-height);
+    height: var(--input-height);
     right: 0;
     bottom: 0;
   }
@@ -33,7 +31,7 @@
   &::after {
     font-size: 2.4em;
     content: '✓';
-    line-height: _inputHeight;
+    line-height: var(--input-height);
     text-align: center;
     transform: scale(0);
     transition-duration: 225ms;

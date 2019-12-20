@@ -1,11 +1,9 @@
-@value _inputHeight: 40px;
-
 .component {
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--color-barley-white);
-  height: _inputHeight !important;
+  height: var(--input-height) !important;
   background-color: var(--color-plantation);
   cursor: pointer;
   position: relative;
