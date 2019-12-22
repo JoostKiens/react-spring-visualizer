@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "@kaliber/build": "0.0.100",
+    "@kaliber/use-render-on-mount": "^1.0.1",
     "react-spring": "^8.0.27",
     "use-clipboard-copy": "^0.1.1",
     "use-persisted-state": "^0.3.0"

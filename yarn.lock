@@ -853,6 +853,11 @@
   resolved "https://registry.yarnpkg.com/@kaliber/config/-/config-0.0.7.tgz#450199172fb60464abaa665a78894800be509431"
   integrity sha512-Nzqn+bWNNkwd2Mp4fxdoYdl9evBE7dIwjaEe3fMDfaYxA+AhuZIFTWhXkvJo9qqYv1dzAuOIwU238RI0UvUKVQ==
 
+"@kaliber/use-render-on-mount@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@kaliber/use-render-on-mount/-/use-render-on-mount-1.0.1.tgz#4234fa4c48026c3c0b57210d2d840e2e202a29dd"
+  integrity sha512-b0HxDzr8fl1dcDH2/MWW9KiTVTaPfOsi/rQjmgmlKuraYQTiXW6XGPS5HuQKH/NGWCq4Pw39TfJNLGclJcov5A==
+
 "@nodelib/fs.scandir@2.1.3":
   version "2.1.3"
   resolved "https://registry.yarnpkg.com/@nodelib/fs.scandir/-/fs.scandir-2.1.3.tgz#3a582bdb53804c6ba6d146579c46e52130cf4a3b"

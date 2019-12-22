@@ -1,5 +1,6 @@
 import { SrOnly } from '/machinery/SrOnly'
 import styles from './Presets.css'
+import { useRenderOnMount } from '@kaliber/use-render-on-mount'
 
 const presets = [
   ['', 'Presets'],
@@ -11,8 +12,9 @@ const presets = [
   [JSON.stringify({ mass: 1, tension :280, friction: 120 }), 'Molasses']
 ]
 
-export function Presets({ formState, layoutClassName, onChange }) {
-  const [formValues, setFormValues] = React.useMemo(() => formState, [formState])
+export function Presets({ formState: [formValues, setFormValues], layoutClassName, onChange }) {
+  useRenderOnMount()
+
   const handleChange = React.useCallback(
     ({ target: { value } }) => {
       if (value) {
@@ -23,7 +25,7 @@ export function Presets({ formState, layoutClassName, onChange }) {
     [setFormValues, onChange]
   )
 
-  const currentValue = React.useMemo(
+  const value = React.useMemo(
     () => {
       const { mass, tension, friction } = formValues
       return JSON.stringify({ mass, tension, friction })
@@ -34,7 +36,7 @@ export function Presets({ formState, layoutClassName, onChange }) {
   return (
     <div className={layoutClassName}>
       <SrOnly><label htmlFor='presets'>Choose a preset</label></SrOnly>
-      <select onChange={handleChange} className={styles.component} id='presets' value={currentValue}>
+      <select onChange={handleChange} className={styles.component} id='presets' {...{ value }}>
         {presets.map(([value, children]) => <option key={value} {...{ value, children }} />)}
       </select>
     </div>
