@@ -25,6 +25,13 @@ export default (
       <meta name="msapplication-TileColor" content="#ffd369" />
       <meta name="msapplication-config" content="/static/browserconfig.xml" />
       <meta name="theme-color" content="#ffd369" />
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-37283269-2" />
+      <script dangerouslySetInnerHTML={{ __html: `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-37283269-2', { 'anonymize_ip': true, allowAdFeatures : false, forceSSL : true });
+      ` }} />
     </head>
     <body>
       <App />
