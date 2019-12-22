@@ -30,7 +30,7 @@ export default (
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'UA-37283269-2');
+        gtag('config', 'UA-37283269-2', { 'anonymize_ip': true, allowAdFeatures : false, forceSSL : true });
       ` }} />
     </head>
     <body>
