@@ -27,7 +27,7 @@ export function Form({ handleSubmit, formState, layoutClassName }) {
       />
       <InputNumber
         name='velocity' label='Velocity' layoutClassName={styles.inputNumber}
-        min={0} max={100} step={0.1} {...{ formState }}
+        min={-50} max={50} step={1} {...{ formState }}
       />
       <Checkbox
         name='clamp' label='Clamp' layoutClassName={styles.checkbox}
