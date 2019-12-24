@@ -19,7 +19,6 @@ damping === friction * -velocity === c
 - ma = -kX - cv
 - ma = -k(x - 1) - cv
 
-
 - k is a constant: TENSION,
 - x is displacement, difference between length of spring at rest and current position
 - F = -kx
