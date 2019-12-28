@@ -1,0 +1,103 @@
+.component {
+  display: flex;
+  border: 3px dashed var(--color-plantation);
+  justify-content: center;
+  padding-top: 10%;
+  position: relative;
+  cursor: pointer;
+
+  & > .springBase {
+    width: 50%;
+    height: 100%; /* Safari needs this to calculate the height of its child */
+  }
+
+  & > .friction {
+    position: absolute;
+    top: 10%;
+    left: 20px;
+  }
+}
+
+.springBase {
+  position: relative;
+
+  & > .springLengthAtRest,
+  & > .ceiling {
+    position: absolute;
+    left: 0;
+    width: 100%;
+  }
+
+  & > .springLengthAtRest {
+    top: 0;
+    left: -20%;
+    width: 140%;
+  }
+
+  & > .ceiling {
+    top: -20px;
+    height: 20px;
+  }
+
+  & > .spring {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -40px; /* intrinsic width is 80px */
+  }
+
+  /* & > .bob { width: 100%; } */
+}
+
+.springLengthAtRest {
+  height: 1px !important;
+  border-bottom: 1px dashed var(--color-plantation);
+  background-color: var(--color-goldenrod);
+  position: relative;
+
+  &.isClamped {
+    &::before {
+      position: absolute;
+      bottom: 0;
+      height: 20px;
+      left: 25%;
+      width: 50%;
+      content: '';
+      background-color: var(--color-plantation);
+    }
+  }
+}
+
+.ceiling {
+  border-bottom: 3px solid var(--color-plantation);
+  background-image: linear-gradient(
+    135deg,
+    transparent 45.45%,
+    var(--color-plantation) 45.45%,
+    var(--color-plantation) 50%,
+    transparent 50%,
+    transparent 95.45%,
+    var(--color-plantation) 95.45%,
+    var(--color-plantation) 100%
+  );
+  background-size: 11px 11px;
+}
+
+.componentBob {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  & > .handle {
+    margin: -1px auto;
+    width: 100px;
+    height: auto;
+  }
+}
+
+.mass {
+  height: 40px !important;
+  transform-origin: top center;
+  background-color: var(--color-plantation);
+  will-change: transform;
+}
