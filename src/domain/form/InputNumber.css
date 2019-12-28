@@ -18,6 +18,7 @@
   border: 2px solid var(--color-plantation);
   background-color: var(--color-barley-white);
   padding: 6px;
+  border-radius: 0;
 }
 
 .numberLabel { display: block; }
