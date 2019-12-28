@@ -1,5 +1,5 @@
 import { Form } from './form/Form'
-import { Visualizer } from './Visualizer'
+// import { Visualizer } from './Visualizer' // add nav for switching visalizers
 import { SpringVisualizer } from './SpringVisualizer'
 import { Header } from './Header'
 import createPersistedState from 'use-persisted-state'
@@ -34,8 +34,6 @@ export default function App() {
     },
     [setActive]
   )
-
-
 
   return (
     <div className={styles.app}>
