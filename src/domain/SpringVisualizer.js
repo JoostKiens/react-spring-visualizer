@@ -1,6 +1,6 @@
 import styles from './SpringVisualizer.css'
 import { useRenderOnMount } from '@kaliber/use-render-on-mount'
-import { a, useSpring } from 'react-spring'
+import { animated as a, useSpring } from 'react-spring'
 
 export function SpringVisualizer({ active, config, onClick, layoutClassName, valueAttributes }) {
   const [{ progress }, set] = useSpring(() => ({ from: { progress: 0 }, progress: 0 }))

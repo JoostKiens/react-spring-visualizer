@@ -1,0 +1,160 @@
+.component {
+  cursor: pointer;
+  border: 3px dashed var(--color-plantation);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 0;
+
+  & > .opacityLayout,
+  & > .scaleLayout {
+    width: 66.67%;
+    height: 66.67%;
+  }
+
+  & > .translateLayout {
+    width: 50%;
+    height: 50%;
+  }
+
+  & > .progress {
+    position: absolute;
+    width: 60px;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1;
+  }
+}
+
+.progress {
+  text-align: right;
+  font-size: 32px;
+  display: block;
+  font-weight: 700;
+  text-shadow: 0 0 1px yellow;
+}
+
+.componentScale {
+  position: relative;
+
+  & > .scale {
+    width: 100%;
+    height: 100%;
+  }
+
+  & > .scaleMin,
+  & > .scaleMax { position: absolute; }
+
+  & > .scaleMin {
+    top: 25%;
+    left: 25%;
+    width: 50%;
+    height: 50%;
+  }
+
+  & > .scaleMax {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.scaleMax,
+.scaleMin {
+  outline: 1px dashed var(--color-goldenrod);
+  border: 1px dashed var(--color-plantation);
+}
+
+.scale {
+  background-color: var(--color-plantation);
+  will-change: transform;
+}
+
+.componentOpacity {
+  display: flex;
+  align-items: center;
+
+  & > :not(:last-child) { margin-right: 30px; }
+
+  & > .opacityContainer {
+    flex-grow: 1;
+    align-self: stretch;
+  }
+
+  & > .legend {
+    flex: 0 0 30px;
+    height: calc(100% - 10px);
+  }
+}
+
+.legend {
+  position: relative;
+  background-image: linear-gradient(
+    to top,
+    rgba(38, 63, 68, 0),
+    rgba(38, 63, 68, 1)
+  );
+
+  & > .current {
+    position: absolute;
+    width: 140%;
+    left: -20%;
+    height: 10px;
+    top: -5px;
+  }
+}
+
+.current {
+  transform-origin: bottom;
+  will-change: transform;
+  background-color: var(--color-plantation);
+}
+
+.opacityContainer {
+  outline: 1px dashed var(--color-goldenrod);
+  border: 1px dashed var(--color-plantation);
+
+  & > .opacity {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.opacity {
+  background-color: var(--color-plantation);
+  will-change: opacity;
+}
+
+.componentTranslate {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+  & > .translate {
+    width: 20%;
+    height: 40%;
+    top: 20%;
+    position: relative;
+  }
+
+  & > .translateBoundaries {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+}
+
+.translateBoundaries {
+  outline: 1px dashed var(--color-goldenrod);
+  border: 1px dashed var(--color-plantation);
+}
+
+.translate {
+  background-color: var(--color-plantation);
+  will-change: transform;
+}

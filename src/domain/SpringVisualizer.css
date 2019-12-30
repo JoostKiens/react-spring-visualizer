@@ -18,8 +18,11 @@
   }
 }
 
+.friction { pointer-events: none; }
+
 .springBase {
   position: relative;
+  pointer-events: none;
 
   & > .springLengthAtRest,
   & > .ceiling {
@@ -45,8 +48,6 @@
     left: 50%;
     margin-left: -40px; /* intrinsic width is 80px */
   }
-
-  /* & > .bob { width: 100%; } */
 }
 
 .springLengthAtRest {
