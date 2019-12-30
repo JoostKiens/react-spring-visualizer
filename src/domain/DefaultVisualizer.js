@@ -7,6 +7,7 @@ export function DefaultVisualizer({ active, config, onClick, layoutClassName, di
     (active) => ({ from: { progress: 0 }, progress: active ? 1 : 0, config }),
     [config]
   )
+
   return (
     <section className={cx(styles.component, layoutClassName)} {...{ onClick }}>
       {display === 'scale' && <Scale layoutClassName={styles.scaleLayout}{...{ active, makeSpring }} />}
