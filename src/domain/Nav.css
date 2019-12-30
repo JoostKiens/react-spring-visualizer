@@ -1,0 +1,12 @@
+.component {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.componentButton {
+  width: 60px !important;
+  height: 60px !important;
+  display: block;
+  overflow: hidden;
+}

@@ -1,7 +1,8 @@
 import { Form } from './form/Form'
-// import { Visualizer } from './Visualizer' // add nav for switching visalizers
+import { DefaultVisualizer } from './DefaultVisualizer'
 import { SpringVisualizer } from './SpringVisualizer'
 import { Header } from './Header'
+import { Nav } from './Nav'
 import createPersistedState from 'use-persisted-state'
 import styles from './App.css'
 
@@ -16,16 +17,12 @@ const valueAttributes = {
 
 export default function App() {
   const [active, setActive] = React.useState(false)
+  const [display, setDisplay] = React.useState('spring')
   const formState = useFormState({
     mass: 1, tension: 170, friction: 26,
     clamp: false, precision: 0.01, velocity: 0
   })
   const config = formState[0]
-
-  React.useEffect(
-    () => { setActive(false) },
-    [config]
-  )
 
   const play = React.useCallback(
     evt => {
@@ -35,17 +32,35 @@ export default function App() {
     [setActive]
   )
 
+  React.useEffect(
+    () => { setActive(false) },
+    [config, display]
+  )
+
   return (
     <div className={styles.app}>
       <div className={styles.layout}>
         <Header layoutClassName={styles.header} />
         <Form handleSubmit={play} layoutClassName={styles.form} {...{ formState, valueAttributes, active }} />
-        <SpringVisualizer
-          onClick={play}
-          config={formState[0]}
-          layoutClassName={styles.visualizer}
-          {...{ active, valueAttributes }}
-        />
+        { display === 'spring'
+          ? (
+            <SpringVisualizer
+              onClick={play}
+              config={formState[0]}
+              layoutClassName={styles.visualizer}
+              {...{ active, valueAttributes }}
+            />
+          )
+          : (
+            <DefaultVisualizer
+              onClick={play}
+              config={formState[0]}
+              layoutClassName={styles.visualizer}
+              {...{ active, display, valueAttributes }}
+            />
+          )
+        }
+        <Nav layoutClassName={styles.nav} {...{ display, setDisplay }} />
       </div>
     </div>
   )
