@@ -85,7 +85,6 @@ function Friction({ friction, layoutClassName }) {
   )
 }
 
-
 function Spring({ progress, tension, maxTension, springLengthAtRest, layoutClassName }) {
   const padding = 2000
   const calcScale = React.useCallback(
