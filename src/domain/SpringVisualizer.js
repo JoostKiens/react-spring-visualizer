@@ -65,7 +65,7 @@ function Bob({ mass, tension, progress, layoutClassName, springLengthAtRest }) {
           stroke="none" strokeWidth="0" fill="#001858" fillRule="evenodd"
         />
       </svg>
-      <div className={styles.mass} style={{ height: Math.sqrt(mass * 1000) }} />
+      <div className={styles.mass} style={{ height: Math.sqrt(mass * 3600) }} />
     </a.div>
   )
 }
