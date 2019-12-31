@@ -25,6 +25,7 @@ export function SpringVisualizer({ active, config, onClick, layoutClassName, val
     <figure className={cx(styles.component, layoutClassName)} {...{ onClick }}>
       {isMounted && (
         <>
+          <Friction layoutClassName={styles.friction} friction={config.friction} />
           <div className={styles.springBase}>
             <div className={styles.ceiling} />
             <Spring
@@ -43,7 +44,8 @@ export function SpringVisualizer({ active, config, onClick, layoutClassName, val
               style={{ marginTop: springLengthAtRest }}
             />
           </div>
-          <Friction layoutClassName={styles.friction} friction={config.friction} />
+
+          <a.span className={styles.progress}>{progress.interpolate(x => `${x.toFixed(2)}`)}</a.span>
         </>
       )}
     </figure>
