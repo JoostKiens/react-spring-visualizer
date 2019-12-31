@@ -1,8 +1,9 @@
-import { Form } from './form/Form'
 import { DefaultVisualizer } from './DefaultVisualizer'
-import { SpringVisualizer } from './SpringVisualizer'
+import { Form } from './form/Form'
 import { Header } from './Header'
 import { Nav } from './Nav'
+import { Router, globalHistory } from '@reach/router'
+import { SpringVisualizer } from './SpringVisualizer'
 import createPersistedState from 'use-persisted-state'
 import styles from './App.css'
 
@@ -17,11 +18,7 @@ const valueAttributes = {
 
 export default function App() {
   const [active, setActive] = React.useState(false)
-  const [display, setDisplay] = React.useState('spring')
-  const formState = useFormState({
-    mass: 1, tension: 170, friction: 26,
-    clamp: false, precision: 0.01, velocity: 0
-  })
+  const formState = useFormState({ mass: 1, tension: 170, friction: 26, clamp: false, precision: 0.01, velocity: 0 })
   const config = formState[0]
 
   const play = React.useCallback(
@@ -32,35 +29,37 @@ export default function App() {
     [setActive]
   )
 
+  React.useEffect(() => { setActive(false) }, [config])
+
   React.useEffect(
-    () => { setActive(false) },
-    [config, display]
+    () => {
+      return globalHistory.listen(() => { setActive(false) })
+    },
+    []
+  )
+
+  const defaultVisualizerProps = React.useMemo(
+    () => ({
+      onClick: play,
+      layoutClassName: styles.visualizerX,
+      active, valueAttributes, config
+    }),
+    [active, config, play]
   )
 
   return (
+
     <div className={styles.app}>
       <div className={styles.layout}>
         <Header layoutClassName={styles.header} />
         <Form handleSubmit={play} layoutClassName={styles.form} {...{ formState, valueAttributes, active }} />
-        { display === 'spring'
-          ? (
-            <SpringVisualizer
-              onClick={play}
-              config={formState[0]}
-              layoutClassName={styles.visualizer}
-              {...{ active, valueAttributes }}
-            />
-          )
-          : (
-            <DefaultVisualizer
-              onClick={play}
-              config={formState[0]}
-              layoutClassName={styles.visualizer}
-              {...{ active, display, valueAttributes }}
-            />
-          )
-        }
-        <Nav layoutClassName={styles.nav} {...{ display, setDisplay }} />
+        <Router primary={false} className={styles.visualizer}>
+          <SpringVisualizer path='/' onClick={play} {...{ active, valueAttributes, config }} />
+          <DefaultVisualizer path='scale' display='scale' {...defaultVisualizerProps} />
+          <DefaultVisualizer path='opacity' display='opacity' {...defaultVisualizerProps} />
+          <DefaultVisualizer path='translateY' display='translateY' {...defaultVisualizerProps} />
+        </Router>
+        <Nav layoutClassName={styles.nav} />
       </div>
     </div>
   )

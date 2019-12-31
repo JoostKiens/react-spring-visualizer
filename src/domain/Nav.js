@@ -1,38 +1,37 @@
 import { animated as a, useSpring } from 'react-spring'
+import { Link } from '@reach/router'
 import styles from './Nav.css'
 
-export function Nav({ display, setDisplay, layoutClassName }) {
+export function Nav({ layoutClassName }) {
   const displays = React.useMemo(
     () => [
-      { id: 'spring', label: 'Spring', Icon: SpringIcon },
-      { id: 'scale', label: 'Scale', Icon: ScaleIcon },
-      { id: 'opacity', label: 'Opacity', Icon: OpacityIcon },
-      { id: 'translateY', label: 'Translate Y', Icon: TranslateYIcon }
+      { slug: '', label: 'Spring', Icon: SpringIcon },
+      { slug: 'scale', label: 'Scale', Icon: ScaleIcon },
+      { slug: 'opacity', label: 'Opacity', Icon: OpacityIcon },
+      { slug: 'translateY', label: 'Translate Y', Icon: TranslateYIcon }
     ],
     []
   )
 
   return (
     <nav className={cx(styles.component, layoutClassName)}>
-      {displays.map(({ id, label, Icon }) =>
-        <Button key={id} {...{ id, label, Icon }} onClick={() => setDisplay(id)} />
-      )}
+      {displays.map(({ slug, label, Icon }) => <Button key={slug} {...{ slug, label, Icon }} />)}
     </nav>
   )
 }
 
-function Button({ id, label, Icon, onClick }) {
+function Button({ slug, label, Icon }) {
   const [active, setActive] = React.useState(false)
   return (
-    <button
+    <Link
+      to={`/${slug}`}
       type='button' title={label}
       className={styles.componentButton}
       onMouseOver={() => setActive(true)}
       onMouseOut={() => setActive(false)}
-      {...{ onClick }}
     >
       <Icon {...{ active }} />
-    </button>
+    </Link>
   )
 }
 

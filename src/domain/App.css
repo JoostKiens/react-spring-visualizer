@@ -52,3 +52,7 @@
   & > .visualizer { grid-area: visualizer; }
   & > .nav { grid-area: nav; }
 }
+
+.visualizer {
+  & > * { height: 100%; }
+}
