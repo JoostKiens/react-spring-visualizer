@@ -47,6 +47,11 @@
     grid-gap: 40px;
   }
 
+  @media (--viewport-lg) {
+    padding: 60px;
+    grid-gap: 60px;
+  }
+
   & > .header { grid-area: header; }
   & > .form { grid-area: form; }
   & > .visualizer { grid-area: visualizer; }

@@ -22,6 +22,7 @@ function Scale({ active, layoutClassName, makeSpring }) {
 
   return (
     <div className={cx(styles.componentScale, layoutClassName)}>
+      <a.span className={styles.progress}>{progress.interpolate(x => `${x.toFixed(2)}`)}</a.span>
       <a.div
         className={styles.scale}
         style={{ transform: progress.interpolate(x => `scale(${0.5 + x * 0.5})`) }}
@@ -39,6 +40,7 @@ function Opacity({ active, layoutClassName, makeSpring }) {
 
   return (
     <div className={cx(styles.componentOpacity, layoutClassName)}>
+      <a.span className={styles.progress}>{progress.interpolate(x => `${Math.round(x * 100)}%`)}</a.span>
       <div className={styles.opacityContainer}>
         <a.div
           className={styles.opacity}
@@ -74,6 +76,7 @@ function Translate({ active, layoutClassName, makeSpring }) {
 
   return (
     <div className={cx(styles.componentTranslate, layoutClassName)} ref={componentRef}>
+      <a.span className={styles.progress}>{progress.interpolate(x => `${x.toFixed(2)}`)}</a.span>
       <div className={styles.translateBoundariesBackground} />
       <a.div
         className={styles.translate}

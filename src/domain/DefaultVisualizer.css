@@ -19,24 +19,34 @@
     width: 50%;
     height: 50%;
   }
-
-  & > .progress {
-    position: absolute;
-    width: 60px;
-    bottom: 20px;
-    left: 20px;
-    z-index: 1;
-  }
 }
 
 .progress {
   text-align: right;
-  font-size: 32px;
+  font-size: 24px;
+  line-height: 1;
   display: block;
-  font-weight: 700;
-  text-shadow: 0 0 1px yellow;
 }
 
+.componentScale,
+.componentOpacity,
+.componentTranslate {
+  position: relative;
+  z-index: 0;
+
+  & > .progress {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1;
+  }
+}
+
+.componentOpacity {
+  & > .progress {
+    right: 60px;
+  }
+}
 .componentScale {
   position: relative;
   background-color: var(--color-secondary);
