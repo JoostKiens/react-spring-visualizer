@@ -1,0 +1,15 @@
+.component {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+
+  & > .button {
+    width: 60px;
+    &:not(:last-child) { margin-right: 40px; }
+  }
+}
+
+.componentIconWrapper {
+  width: 48px !important;
+  height: 48px !important;
+}

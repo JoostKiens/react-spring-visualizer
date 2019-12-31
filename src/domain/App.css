@@ -1,6 +1,8 @@
 .app {
   display: flex;
   justify-content: center;
+  min-height: 100vh !important;
+  overflow: hidden;
 
   & > .layout {
     max-width: 1000px;
@@ -9,27 +11,53 @@
 }
 
 .layout {
-  padding: 20px;
+  padding: 20px 20px 220px;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: min-content min-content 400px;
-  grid-template-areas: "header" "form" "visualizer";
+  grid-template-areas:
+    "header"
+    "form"
+    "visualizer"
+    "nav";
+  grid-template-rows:
+    min-content
+    min-content
+    400px
+    min-content;
   grid-gap: 20px;
 
   @media (--viewport-sm) {
-    padding: 30px;
+    padding: 30px 30px 230px;
     grid-gap: 30px;
   }
 
   @media (--viewport-md) {
-    grid-template-areas: "header header" "form visualizer" "form visualizer";
-    grid-template-rows: min-content minmax(400px, 1fr) min-content;
+    grid-template-areas:
+      "header header"
+      "form visualizer"
+      "form visualizer"
+      "form nav";
+    grid-template-rows:
+      min-content
+      minmax(400px, min-content)
+      min-content
+      60px;
     grid-template-columns: min-content 1fr;
     padding: 40px;
     grid-gap: 40px;
   }
 
+  @media (--viewport-lg) {
+    padding: 60px;
+    grid-gap: 60px;
+  }
+
   & > .header { grid-area: header; }
   & > .form { grid-area: form; }
   & > .visualizer { grid-area: visualizer; }
+  & > .nav { grid-area: nav; }
+}
+
+.visualizer {
+  & > * { height: 100%; }
 }

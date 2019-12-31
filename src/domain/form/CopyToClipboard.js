@@ -4,7 +4,7 @@ import styles from './CopyToClipboard.css'
 
 export function CopyToClipboard({ layoutClassName, config }) {
   const clipboard = useClipboard()
-  const handleClick = React.useCallback(() => { clipboard.copy(JSON.stringify(config, null, 2)) }, [clipboard, config])
+  const handleClick = React.useCallback(() => { clipboard.copy(JSON.stringify(config, null, 2).replace(/"/g, '')) }, [clipboard, config])
 
   return (
     <Button

@@ -14,7 +14,7 @@ export default (
       <meta name='description' content='Visualize your spring config for react-spring.' />
       <meta name='viewport' content='width=device-width, initial-scale=1' />
       {stylesheet}
-      {polyfill(['default', 'es2015', 'es2016', 'es2017', 'es2018', 'es2019'])}
+      {polyfill(['default', 'es2015', 'es2016', 'es2017', 'es2018', 'es2019', 'ResizeObserver'])}
       {javascript}
       <link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png" />
       <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32x32.png" />

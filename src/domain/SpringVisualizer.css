@@ -1,0 +1,122 @@
+.component {
+  display: flex;
+  border: 5px solid var(--color-stroke);
+  border-radius: 6px;
+  background-color: var(--color-main);
+  justify-content: center;
+  padding-top: 10%;
+  position: relative;
+  cursor: pointer;
+  z-index: 0;
+
+  & > .springBase {
+    width: 50%;
+    height: 100%; /* Safari needs this to calculate the height of its child */
+  }
+
+  & > .friction {
+    position: absolute;
+    top: 10%;
+    left: 20px;
+  }
+
+  & > .progress {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1;
+  }
+}
+
+.progress {
+  text-align: right;
+  font-size: 24px;
+  line-height: 1;
+  display: block;
+}
+
+.friction { pointer-events: none; }
+
+.springBase {
+  position: relative;
+  pointer-events: none;
+
+  & > .springLengthAtRest,
+  & > .ceiling {
+    position: absolute;
+    left: 0;
+    width: 100%;
+  }
+
+  & > .springLengthAtRest {
+    top: 0;
+    left: -20%;
+    width: 140%;
+  }
+
+  & > .ceiling {
+    top: -20px;
+    height: 20px;
+  }
+
+  & > .spring {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -40px; /* intrinsic width is 80px */
+  }
+}
+
+.springLengthAtRest {
+  border: 1px dashed var(--color-stroke);
+  position: relative;
+
+  &.isClamped {
+    &::before {
+      position: absolute;
+      bottom: 0;
+      height: 20px;
+      left: 25%;
+      width: 50%;
+      content: '';
+      background-color: var(--color-secondary);
+      border: 3px solid var(--color-stroke);
+      border-radius: 3px;
+    }
+  }
+}
+
+.ceiling {
+  border-bottom: 3px solid var(--color-stroke);
+  background-image: linear-gradient(
+    135deg,
+    transparent 45.45%,
+    var(--color-stroke) 45.45%,
+    var(--color-stroke) 50%,
+    transparent 50%,
+    transparent 95.45%,
+    var(--color-stroke) 95.45%,
+    var(--color-stroke) 100%
+  );
+  background-size: 11px 11px;
+}
+
+.componentBob {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  & > .handle {
+    margin: -1px auto;
+    width: 100px;
+    height: auto;
+  }
+}
+
+.mass {
+  transform-origin: top center;
+  background-color: var(--color-secondary);
+  border: 5px solid var(--color-stroke);
+  border-radius: 3px;
+  will-change: transform;
+}

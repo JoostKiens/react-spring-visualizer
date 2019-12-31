@@ -2,12 +2,13 @@
 
 .heading {
   font-weight: 700;
+  color: var(--color-heading);
   @media (--viewport-md) { font-size: 3rem; }
 }
 
 .link {
-  color: var(--color-plantation);
-  text-decoration: var(--color-plantation) wavy underline;
+  color: var(--color-body);
+  text-decoration: var(--color-body) wavy underline;
   text-decoration-skip-ink: none;
   position: relative;
   z-index: 0;
