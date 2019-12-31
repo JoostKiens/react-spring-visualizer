@@ -15,10 +15,10 @@
 }
 
 .numberInput {
-  border: 2px solid var(--color-plantation);
-  background-color: var(--color-barley-white);
+  border: 3px solid var(--color-stroke);
+  border-radius: 4px;
+  background-color: var(--color-background);
   padding: 6px;
-  border-radius: 0;
 }
 
 .numberLabel { display: block; }
@@ -32,40 +32,41 @@
   &::-webkit-slider-runnable-track {
     width: 100%;
     height: 10px;
-    background-color: var(--color-plantation);
+    background-color: var(--color-stroke);
+    border-radius: 5px;
   }
 
   &::-moz-range-track {
     width: 100%;
     height: 10px;
-    background-color: var(--color-plantation);
-    border-radius: 0;
+    background-color: var(--color-stroke);
+    border-radius: 5px;
   }
 
   &::-webkit-slider-thumb {
-    border: 3px solid var(--color-plantation);
+    border: 3px solid var(--color-stroke);
     height: 20px;
     width: 20px;
     border-radius: 50%;
-    background: var(--color-barley-white);
+    background: var(--color-main);
     -webkit-appearance: none;
     margin-top: -5px;
   }
 
   &::-moz-range-thumb {
-    border: 3px solid var(--color-plantation);
+    border: 3px solid var(--color-stroke);
     height: 20px;
     width: 20px;
     border-radius: 50%;
-    background: var(--color-barley-white);
+    background: var(--color-main);
   }
 
   &::-ms-thumb {
-    border: 3px solid var(--color-plantation);
+    border: 3px solid var(--color-stroke);
     height: 20px;
     width: 20px;
     border-radius: 50%;
-    background: var(--color-barley-white);
+    background: var(--color-main);
   }
 
   &::-ms-track {
@@ -77,12 +78,12 @@
   }
 
   &::-ms-fill-upper {
-    background: var(--color-plantation);
+    background: var(--color-stroke);
     border-radius: 0;
   }
 
   &::-ms-fill-lower {
-    background: var(--color-plantation);
+    background: var(--color-stroke);
     border-radius: 0;
   }
 }

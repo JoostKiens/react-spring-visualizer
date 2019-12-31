@@ -23,5 +23,5 @@
   display: flex;
   & > *:not(:last-child) { margin-right: 20px; }
   & > .submitButton { flex-grow: 1; }
-  & > .copyToClipboard { width: 40px; }
+  & > .copyToClipboard { width: 60px; }
 }

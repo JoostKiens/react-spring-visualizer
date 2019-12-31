@@ -29,7 +29,7 @@
   }
 
   &::after {
-    font-size: 2.4em;
+    font-size: 1.6em;
     content: '✓';
     line-height: var(--input-height);
     text-align: center;
@@ -41,7 +41,8 @@
 
   &::before {
     content: '';
-    border: 2px solid var(--color-plantation);
-    background-color: var(--color-barley-white);
+    border: 3px solid var(--color-stroke);
+    border-radius: 4px;
+    background-color: var(--color-background);
   }
 }

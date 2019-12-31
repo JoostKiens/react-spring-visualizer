@@ -46,10 +46,22 @@ function Opacity({ active, layoutClassName, makeSpring }) {
         />
       </div>
       <div className={styles.legend} ref={legendRef}>
+        <div className={styles.bar} />
         <a.div
           className={styles.current}
-          style={{ transform: progress.interpolate(x => `translateY(${height - x * height}px)`) }}
-        />
+          style={{ transform: progress.interpolate(x => `translateY(${-3 - x * (height - 6)}px)`) }}
+        >
+          <svg
+            className={styles.currentMarker}
+            width="80" height="16" viewBox="0 0 80 16"
+            xmlns="http://www.w3.org/2000/svg"
+            transform="translate(0, -3)"
+          >
+            <g stroke="#001858" strokeWidth="3" fill="none" fillRule="evenodd">
+              <path d="M12.68 9.32a1.5 1.5 0 000-2.64L4.206 2.1a1.5 1.5 0 00-2.213 1.319v9.164a1.5 1.5 0 002.213 1.32l8.472-4.583zM67.32 9.32a1.5 1.5 0 010-2.64L75.794 2.1a1.5 1.5 0 012.213 1.319v9.164a1.5 1.5 0 01-2.213 1.32L67.32 9.318z" />
+            </g>
+          </svg>
+        </a.div>
       </div>
     </div>
   )
@@ -62,11 +74,12 @@ function Translate({ active, layoutClassName, makeSpring }) {
 
   return (
     <div className={cx(styles.componentTranslate, layoutClassName)} ref={componentRef}>
+      <div className={styles.translateBoundariesBackground} />
       <a.div
         className={styles.translate}
         style={{ transform: progress.interpolate(x => `translateY(${ -x * height}px)`) }}
       />
-      <div className={styles.translateBoundaries} />
+      <div className={styles.translateBoundariesBorder} />
     </div>
   )
 }

@@ -8,8 +8,8 @@ html {
 }
 
 body {
-  background-color: var(--color-goldenrod);
-  color: var(--color-plantation);
+  background-color: var(--color-background);
+  color: var(--color-body);
   font-family: var(--font-family-base);
   font-size: var(--font-size-xs);
   line-height: var(--line-height-base);
