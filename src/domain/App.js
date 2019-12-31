@@ -4,6 +4,7 @@ import { Header } from './Header'
 import { Nav } from './Nav'
 import { Router, globalHistory } from '@reach/router'
 import { SpringVisualizer } from './SpringVisualizer'
+import { useRenderOnMount } from '@kaliber/use-render-on-mount'
 import createPersistedState from 'use-persisted-state'
 import styles from './App.css'
 
@@ -18,6 +19,7 @@ const valueAttributes = {
 
 export default function App() {
   const [active, setActive] = React.useState(false)
+  const isMounted = useRenderOnMount()
   const formState = useFormState({ mass: 1, tension: 170, friction: 26, clamp: false, precision: 0.01, velocity: 0 })
   const config = formState[0]
 
@@ -53,13 +55,17 @@ export default function App() {
       <div className={styles.layout}>
         <Header layoutClassName={styles.header} />
         <Form handleSubmit={play} layoutClassName={styles.form} {...{ formState, valueAttributes, active }} />
-        <Router primary={false} className={styles.visualizer}>
-          <SpringVisualizer path='/' onClick={play} {...{ active, valueAttributes, config }} />
-          <DefaultVisualizer path='scale' display='scale' {...defaultVisualizerProps} />
-          <DefaultVisualizer path='opacity' display='opacity' {...defaultVisualizerProps} />
-          <DefaultVisualizer path='translateY' display='translateY' {...defaultVisualizerProps} />
-        </Router>
-        <Nav layoutClassName={styles.nav} />
+        {isMounted && (
+          <>
+            <Router primary={false} className={styles.visualizer}>
+              <SpringVisualizer path='/' onClick={play} {...{ active, valueAttributes, config }} />
+              <DefaultVisualizer path='scale' display='scale' {...defaultVisualizerProps} />
+              <DefaultVisualizer path='opacity' display='opacity' {...defaultVisualizerProps} />
+              <DefaultVisualizer path='translateY' display='translateY' {...defaultVisualizerProps} />
+            </Router>
+            <Nav layoutClassName={styles.nav} />
+          </>
+        )}
       </div>
     </div>
   )
