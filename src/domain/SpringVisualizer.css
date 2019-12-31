@@ -1,6 +1,8 @@
 .component {
   display: flex;
-  border: 3px dashed var(--color-plantation);
+  border: 5px solid var(--color-stroke);
+  border-radius: 6px;
+  background-color: var(--color-main);
   justify-content: center;
   padding-top: 10%;
   position: relative;
@@ -51,9 +53,7 @@
 }
 
 .springLengthAtRest {
-  height: 1px !important;
-  border-bottom: 1px dashed var(--color-plantation);
-  background-color: var(--color-goldenrod);
+  border: 1px dashed var(--color-stroke);
   position: relative;
 
   &.isClamped {
@@ -64,22 +64,24 @@
       left: 25%;
       width: 50%;
       content: '';
-      background-color: var(--color-plantation);
+      background-color: var(--color-secondary);
+      border: 3px solid var(--color-stroke);
+      border-radius: 3px;
     }
   }
 }
 
 .ceiling {
-  border-bottom: 3px solid var(--color-plantation);
+  border-bottom: 3px solid var(--color-stroke);
   background-image: linear-gradient(
     135deg,
     transparent 45.45%,
-    var(--color-plantation) 45.45%,
-    var(--color-plantation) 50%,
+    var(--color-stroke) 45.45%,
+    var(--color-stroke) 50%,
     transparent 50%,
     transparent 95.45%,
-    var(--color-plantation) 95.45%,
-    var(--color-plantation) 100%
+    var(--color-stroke) 95.45%,
+    var(--color-stroke) 100%
   );
   background-size: 11px 11px;
 }
@@ -97,8 +99,9 @@
 }
 
 .mass {
-  height: 40px !important;
   transform-origin: top center;
-  background-color: var(--color-plantation);
+  background-color: var(--color-secondary);
+  border: 5px solid var(--color-stroke);
+  border-radius: 3px;
   will-change: transform;
 }
