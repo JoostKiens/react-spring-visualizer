@@ -32,13 +32,7 @@ export default function App() {
   )
 
   React.useEffect(() => { setActive(false) }, [config])
-
-  React.useEffect(
-    () => {
-      return globalHistory.listen(() => { setActive(false) })
-    },
-    []
-  )
+  React.useEffect(() => { return globalHistory.listen(() => { setActive(false) }) }, [])
 
   const defaultVisualizerProps = React.useMemo(
     () => ({
