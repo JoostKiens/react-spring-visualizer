@@ -1,4 +1,5 @@
-.component {
+.component,
+.componentLink {
   cursor: pointer;
   position: relative;
   height: 60px !important;

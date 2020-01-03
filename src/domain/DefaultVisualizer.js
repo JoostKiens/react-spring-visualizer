@@ -2,14 +2,14 @@ import  { animated as a, useSpring } from 'react-spring'
 import { useElementSize } from '/machinery/useElementSize'
 import styles from './DefaultVisualizer.css'
 
-export function DefaultVisualizer({ active, config, onClick, layoutClassName, display }) {
+export function DefaultVisualizer({ active, config, onClick, display }) {
   const makeSpring = React.useCallback(
     (active) => ({ from: { progress: 0 }, progress: active ? 1 : 0, config }),
     [config]
   )
 
   return (
-    <section className={cx(styles.component, layoutClassName)} {...{ onClick }}>
+    <section className={styles.component} {...{ onClick }}>
       {display === 'scale' && <Scale layoutClassName={styles.scaleLayout}{...{ active, makeSpring }} />}
       {display === 'opacity' && <Opacity layoutClassName={styles.opacityLayout}{...{ active, makeSpring }} />}
       {display === 'translateY' && <Translate layoutClassName={styles.translateLayout}{...{ active, makeSpring }} />}

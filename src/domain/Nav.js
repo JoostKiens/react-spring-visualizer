@@ -5,29 +5,29 @@ import styles from './Nav.css'
 export function Nav({ layoutClassName }) {
   const displays = React.useMemo(
     () => [
-      { slug: '', label: 'Spring', Icon: SpringIcon },
-      { slug: 'scale', label: 'Scale', Icon: ScaleIcon },
-      { slug: 'opacity', label: 'Opacity', Icon: OpacityIcon },
-      { slug: 'translateY', label: 'Translate Y', Icon: TranslateYIcon }
+      { hash: '', label: 'Spring', Icon: SpringIcon },
+      { hash: '#scale', label: 'Scale', Icon: ScaleIcon },
+      { hash: '#opacity', label: 'Opacity', Icon: OpacityIcon },
+      { hash: '#translateY', label: 'Translate Y', Icon: TranslateYIcon }
     ],
     []
   )
 
   return (
     <nav className={cx(styles.component, layoutClassName)}>
-      {displays.map(({ slug, label, Icon }) =>
-        <Button key={slug} layoutClassName={styles.button} {...{ slug, label, Icon }} />
+      {displays.map(({ hash, label, Icon }) =>
+        <Button key={hash} layoutClassName={styles.button} {...{ hash, label, Icon }} />
       )}
     </nav>
   )
 }
 
-function Button({ slug, label, Icon, layoutClassName }) {
+function Button({ hash, label, Icon, layoutClassName }) {
   const [active, setActive] = React.useState(false)
   return (
     <ButtonLink
-      to={`/${slug}`}
-      type='button' title={label}
+      href={`/${hash}`}
+      title={label}
       onMouseOver={() => setActive(true)}
       onMouseOut={() => setActive(false)}
       {...{ layoutClassName }}

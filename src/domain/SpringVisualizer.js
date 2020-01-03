@@ -2,7 +2,7 @@ import styles from './SpringVisualizer.css'
 import { useRenderOnMount } from '@kaliber/use-render-on-mount'
 import { animated as a, useSpring } from 'react-spring'
 
-export function SpringVisualizer({ active, config, onClick, layoutClassName, valueAttributes }) {
+export function SpringVisualizer({ active, config, onClick, valueAttributes }) {
   const [{ progress }, set] = useSpring(() => ({ from: { progress: 0 }, progress: 0 }))
 
   React.useEffect(
@@ -22,7 +22,7 @@ export function SpringVisualizer({ active, config, onClick, layoutClassName, val
   const springLengthAtRest = 100
 
   return (
-    <figure className={cx(styles.component, layoutClassName)} {...{ onClick }}>
+    <figure className={styles.component} {...{ onClick }}>
       {isMounted && (
         <>
           <Friction layoutClassName={styles.friction} friction={config.friction} />
