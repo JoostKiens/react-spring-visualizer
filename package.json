@@ -4,6 +4,7 @@
     "@kaliber/use-render-on-mount": "^1.0.1",
     "@reach/router": "^1.2.1",
     "react-spring": "^8.0.27",
+    "svg-catmull-rom-spline": "^0.0.1",
     "use-clipboard-copy": "^0.1.1",
     "use-persisted-state": "^0.3.0"
   },

@@ -1,9 +1,24 @@
 import styles from './SpringVisualizer.css'
 import { useRenderOnMount } from '@kaliber/use-render-on-mount'
+import { useElementSize } from '/machinery/useElementSize'
 import { animated as a, useSpring } from 'react-spring'
+import SVGCatmullRomSpline from 'svg-catmull-rom-spline'
 
 export function SpringVisualizer({ active, config, onClick, layoutClassName, valueAttributes }) {
-  const [{ progress }, set] = useSpring(() => ({ from: { progress: 0 }, progress: 0 }))
+  const valuesRef = React.useRef([])
+  const componentRef = React.useRef()
+  const [chartValues, setChartValues] = React.useState(null)
+  const { width, height } = useElementSize(componentRef)
+  // @ts-ignore
+  const [{ progress }, set] = useSpring(() => ({
+    from: { progress: 0 },
+    progress: 0,
+    onStart: () => { valuesRef.current = [] },
+    onFrame: ({ progress }) => { valuesRef.current.push(progress) },
+    onRest: () => {
+      setChartValues(valuesRef.current)
+    }
+  }))
 
   React.useEffect(
     () => {
@@ -22,9 +37,10 @@ export function SpringVisualizer({ active, config, onClick, layoutClassName, val
   const springLengthAtRest = 100
 
   return (
-    <figure className={cx(styles.component, layoutClassName)} {...{ onClick }}>
+    <figure className={cx(styles.component, layoutClassName)} {...{ onClick }} ref={componentRef}>
       {isMounted && (
         <>
+          <Chart layoutClassName={styles.chart} values={chartValues} {...{ width, height }} />
           <Friction layoutClassName={styles.friction} friction={config.friction} />
           <div className={styles.springBase}>
             <div className={styles.ceiling} />
@@ -111,6 +127,24 @@ function Spring({ progress, tension, maxTension, springLengthAtRest, layoutClass
           />
         </a.g>
       </g>
+    </svg>
+  )
+}
+
+function Chart({ values, width, height, layoutClassName }) {
+  const length = values.length
+  const points = values.map((y, i) => [i / length * width, height - y * height])
+  const tolerance = 1
+  const highestQuality = true
+  const d = SVGCatmullRomSpline.toPath(points, tolerance, highestQuality)
+
+  return values && (
+    <svg
+      className={layoutClassName}
+      {...{ width, height }}
+      viewBox={`0 0 ${width} ${height}`} xmlns="http://www.w3.org/2000/svg"
+    >
+      <path {...{ d }} stroke='#fef6e4' strokeWidth='3' fill='none' />
     </svg>
   )
 }

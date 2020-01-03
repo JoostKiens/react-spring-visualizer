@@ -8077,6 +8077,11 @@ simple-swizzle@^0.2.2:
   dependencies:
     is-arrayish "^0.3.1"
 
+simplify-js@^1.2.1:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/simplify-js/-/simplify-js-1.2.3.tgz#a3422c1b9884d60421345eb44d2b872662df27f5"
+  integrity sha512-0IkEqs+5c5vROkHaifGfbqHf5tYDcsTBy6oJPRbFCSwp2uzEr+PpH3dNP7wD8O3d7zdUCjLVq1/xHkwA/JjlFA==
+
 slash@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/slash/-/slash-2.0.0.tgz#de552851a1759df3a8f206535442f5ec4ddeab44"
@@ -8593,6 +8598,13 @@ supports-color@^6.1.0:
   integrity sha512-qe1jfm1Mg7Nq/NSh6XE24gPXROEVsWHxC1LIx//XNlD9iw7YZQGjZNjYN7xGaEG6iKdA8EtNFW6R0gjnVXp+wQ==
   dependencies:
     has-flag "^3.0.0"
+
+svg-catmull-rom-spline@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/svg-catmull-rom-spline/-/svg-catmull-rom-spline-0.0.1.tgz#ae3bf714db19ad0a7657d76056c3da8b1856cfd8"
+  integrity sha1-rjv3FNsZrQp2V9dgVsPaixhWz9g=
+  dependencies:
+    simplify-js "^1.2.1"
 
 svg-tags@^1.0.0:
   version "1.0.0"
