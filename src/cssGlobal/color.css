@@ -3,16 +3,24 @@
   --color-solitaire: #fef6e4;
   --color-persian-pink: #f582ae;
   --color-biscay: #172c66;
+  --color-mandys-pink: #f3d2c1;
+  --color-morning-glory: #8bd3dd;
 
   --color-background: var(--color-solitaire);
   --color-headline: var(--color-prussian-blue);
-  --color-headline-button-text: var(--color-prussian-blue);
+  --color-button-text: var(--color-prussian-blue);
   --color-body: var(--color-biscay);
   --color-button: var(--color-persian-pink);
+  --color-button-link: var(--color-mandys-pink);
+  --color-button-link-active: var(--color-persian-pink);
 
   --color-stroke: var(--color-prussian-blue);
-  --color-secondary: #8bd3dd;
+  --color-secondary: var(--color-morning-glory);
   --color-tertiary: var(--color-persian-pink);
   --color-highlight: var(--color-solitaire);
-  --color-main: #f3d2c1;
+  --color-main: var(--color-mandys-pink);
+}
+
+:export {
+  buttonText: var(--color-button-text);
 }

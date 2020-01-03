@@ -16,7 +16,7 @@ const valueAttributes = {
 }
 
 export default function App() {
-  const [display, setDisplay] = React.useState(null)
+  const [display, setDisplay] = React.useState('spring')
   const [active, setActive] = React.useState(false)
   const formState = useFormState({ mass: 1, tension: 170, friction: 26, clamp: false, precision: 0.01, velocity: 0 })
   const config = formState[0]
@@ -38,7 +38,7 @@ export default function App() {
 
       function navigate() {
         setActive(false)
-        setDisplay(window.location.hash.replace('#', ''))
+        setDisplay(window.location.hash.replace('#', '') || 'spring')
       }
     },
     []
@@ -50,12 +50,12 @@ export default function App() {
         <Header layoutClassName={styles.header} />
         <Form handleSubmit={play} layoutClassName={styles.form} {...{ formState, valueAttributes, active }} />
         <div className={styles.visualizer}>
-          {!display
+          {display === 'spring'
             ? <SpringVisualizer onClick={play} {...{ active, valueAttributes, config }} />
             : <DefaultVisualizer onClick={play} {...{ active, valueAttributes, config, display }} />
           }
         </div>
-        <Nav layoutClassName={styles.nav} />
+        <Nav layoutClassName={styles.nav} {...{ display }} />
       </div>
     </div>
   )
