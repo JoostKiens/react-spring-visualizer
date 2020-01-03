@@ -2,7 +2,6 @@
   "dependencies": {
     "@kaliber/build": "0.0.101",
     "@kaliber/use-render-on-mount": "^1.0.1",
-    "@reach/router": "^1.2.1",
     "react-spring": "^8.0.27",
     "use-clipboard-copy": "^0.1.1",
     "use-persisted-state": "^0.3.0"

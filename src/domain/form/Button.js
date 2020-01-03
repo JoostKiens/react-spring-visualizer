@@ -1,4 +1,3 @@
-import { Link } from '@reach/router'
 import styles from './Button.css'
 
 export function Button({ children, onClick, layoutClassName, type = null, title = null }) {
@@ -9,10 +8,10 @@ export function Button({ children, onClick, layoutClassName, type = null, title 
   )
 }
 
-export function ButtonLink({ children, onClick, layoutClassName, to, title = null, onMouseOver, onMouseOut }) {
+export function ButtonLink({ children, layoutClassName, href, title = null, onMouseOver, onMouseOut }) {
   return (
-    <Link className={cx(styles.component, layoutClassName)} {...{ onClick, to, title, onMouseOver, onMouseOut }}>
+    <a className={cx(styles.componentLink, layoutClassName)} {...{ href, title, onMouseOver, onMouseOut }}>
       <span className={styles.inner}>{children}</span>
-    </Link>
+    </a>
   )
 }
