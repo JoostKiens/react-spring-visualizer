@@ -30,6 +30,7 @@ export default function App() {
   )
 
   React.useEffect(() => { setActive(false) }, [config])
+
   React.useEffect(
     () => {
       navigate()

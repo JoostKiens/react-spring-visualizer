@@ -3,9 +3,16 @@ import { useElementSize } from '/machinery/useElementSize'
 import styles from './DefaultVisualizer.css'
 
 export function DefaultVisualizer({ active, config, onClick, display }) {
+  const previousConfig = usePrevious(config)
   const makeSpring = React.useCallback(
-    (active) => ({ from: { progress: 0 }, progress: active ? 1 : 0, config }),
-    [config]
+    active => ({
+      from: { progress: 0 },
+      progress: active ? 1 : 0,
+      immediate: config !== previousConfig,
+      reset: config !== previousConfig,
+      config
+    }),
+    [config, previousConfig]
   )
 
   return (
@@ -85,4 +92,10 @@ function Translate({ active, layoutClassName, makeSpring }) {
       <div className={styles.translateBoundariesBorder} />
     </div>
   )
+}
+
+function usePrevious(value) {
+  const refRef = React.useRef()
+  React.useEffect(() => { refRef.current = value }, [value])
+  return refRef.current
 }
