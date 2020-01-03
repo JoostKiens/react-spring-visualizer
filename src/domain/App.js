@@ -35,7 +35,11 @@ export default function App() {
       navigate()
       window.addEventListener('hashchange', navigate, false)
       return () => { window.removeEventListener('hashchange', navigate) }
-      function navigate() { setDisplay(window.location.hash.replace('#', '')) }
+
+      function navigate() {
+        setActive(false)
+        setDisplay(window.location.hash.replace('#', ''))
+      }
     },
     []
   )
