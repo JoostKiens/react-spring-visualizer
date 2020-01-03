@@ -23,7 +23,7 @@
     border: 3px solid var(--color-stroke);
     border-radius: 4px;
     transform-origin: top right;
-    transition-timing-function: cubic-bezier(0.6, -0.28, 0.735, 0.045);
+    transition-timing-function: cubic-bezier(0.165, -0.235, 0.58, 1.18);
     transition-property: transform;
     transition-duration: 200ms;
     will-change: transform;
