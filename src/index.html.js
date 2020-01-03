@@ -24,6 +24,7 @@ export default (
       <link rel="shortcut icon" href="/static/favicon.ico" />
       <meta name="msapplication-TileColor" content="#ffd369" />
       <meta name="msapplication-config" content="/static/browserconfig.xml" />
+      <link rel="canonical" href="https://react-spring-visualizer.joostkiens.com/" />
       <meta name="theme-color" content="#ffd369" />
       <script async src="https://www.googletagmanager.com/gtag/js?id=UA-37283269-2" />
       <script dangerouslySetInnerHTML={{ __html: `
