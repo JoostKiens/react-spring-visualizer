@@ -22,7 +22,7 @@
   grid-template-rows:
     min-content
     min-content
-    400px
+    minmax(500px, 80vh)
     min-content;
   grid-gap: 20px;
 
