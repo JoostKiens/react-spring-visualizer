@@ -3,6 +3,8 @@ import { Form } from './form/Form'
 import { Header } from './Header'
 import { Nav } from './Nav'
 import { SpringVisualizer } from './SpringVisualizer'
+import { Documentation } from './Documentation'
+import { ContentContainer } from './ContentContainer'
 import createPersistedState from 'use-persisted-state'
 import styles from './App.css'
 
@@ -11,7 +13,7 @@ const valueAttributes = {
   mass: { min: 0.1, max: 20, step: 0.1 },
   tension: { min: 1, max: 500, step: 1 },
   friction: { min: 1, max: 200, step: 1 },
-  precision: { min: 0.01, max: 1, step: 0.01 },
+  precision: { min: 0.01, max: 1, step: 0.001 },
   velocity: { min: -50, max: 50, step: 1 }
 }
 
@@ -47,16 +49,23 @@ export default function App() {
 
   return (
     <div className={styles.app}>
-      <div className={styles.layout}>
-        <Header layoutClassName={styles.header} />
-        <Form handleSubmit={play} layoutClassName={styles.form} {...{ formState, valueAttributes, active }} />
-        <div className={styles.visualizer}>
-          {display === 'spring'
-            ? <SpringVisualizer onClick={play} {...{ active, valueAttributes, config }} />
-            : <DefaultVisualizer onClick={play} {...{ active, valueAttributes, config, display }} />
-          }
+      <ContentContainer>
+        <div className={styles.layout}>
+          <Header layoutClassName={styles.header} />
+          <Form handleSubmit={play} layoutClassName={styles.form} {...{ formState, valueAttributes, active }} />
+          <div className={styles.visualizer}>
+            {display === 'spring'
+              ? <SpringVisualizer onClick={play} {...{ active, valueAttributes, config }} />
+              : <DefaultVisualizer onClick={play} {...{ active, valueAttributes, config, display }} />
+            }
+          </div>
+          <Nav layoutClassName={styles.nav} {...{ display }} />
         </div>
-        <Nav layoutClassName={styles.nav} {...{ display }} />
+      </ContentContainer>
+      <div className={styles.documentation}>
+        <ContentContainer>
+          <Documentation layoutClassName={styles.documentation} />
+        </ContentContainer>
       </div>
     </div>
   )

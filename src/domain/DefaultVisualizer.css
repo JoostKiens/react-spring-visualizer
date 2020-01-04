@@ -38,12 +38,6 @@
   }
 }
 
-.componentOpacity {
-  & > .progress {
-    right: 60px;
-  }
-}
-
 .componentScale {
   position: relative;
   background-color: var(--color-secondary);
@@ -98,6 +92,10 @@
   & > .legend {
     flex: 0 0 40px;
     height: 100%;
+  }
+
+  & > .progress {
+    right: 60px;
   }
 }
 
