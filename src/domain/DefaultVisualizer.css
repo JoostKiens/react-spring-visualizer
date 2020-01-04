@@ -43,6 +43,7 @@
     right: 60px;
   }
 }
+
 .componentScale {
   position: relative;
   background-color: var(--color-secondary);
