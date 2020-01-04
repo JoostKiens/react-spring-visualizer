@@ -20,12 +20,12 @@ export default (
       <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32x32.png" />
       <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png" />
       <link rel="manifest" href="/static/site.webmanifest" />
-      <link rel="mask-icon" href="/static/safari-pinned-tab.svg" color="#fef6e4" />
+      <link rel="mask-icon" href="/static/safari-pinned-tab.svg" color="#001858" />
       <link rel="shortcut icon" href="/static/favicon.ico" />
-      <meta name="msapplication-TileColor" content="#fef6e4" />
+      <meta name="msapplication-TileColor" content="#001858" />
       <meta name="msapplication-config" content="/static/browserconfig.xml" />
-      <link rel="canonical" href="https://react-spring-visualizer.joostkiens.com/" />
       <meta name="theme-color" content="#fef6e4" />
+      <link rel="canonical" href="https://react-spring-visualizer.joostkiens.com/" />
       <script async src="https://www.googletagmanager.com/gtag/js?id=UA-37283269-2" />
       <script dangerouslySetInnerHTML={{ __html: `
         window.dataLayer = window.dataLayer || [];

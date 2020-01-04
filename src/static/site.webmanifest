@@ -1,6 +1,6 @@
 {
-    "name": "React-spring visualizer",
-    "short_name": "React-spring visualizer",
+    "name": "",
+    "short_name": "",
     "icons": [
         {
             "src": "/static/android-chrome-192x192.png",
@@ -8,12 +8,12 @@
             "type": "image/png"
         },
         {
-            "src": "/static/android-chrome-512x512.png",
-            "sizes": "512x512",
+            "src": "/static/android-chrome-256x256.png",
+            "sizes": "256x256",
             "type": "image/png"
         }
     ],
-    "theme_color": "#ffff00",
-    "background_color": "#ffff00",
+    "theme_color": "#FEF6E4",
+    "background_color": "#FEF6E4",
     "display": "standalone"
 }
