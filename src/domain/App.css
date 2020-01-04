@@ -39,7 +39,7 @@
       "form nav";
     grid-template-rows:
       min-content
-      minmax(400px, min-content)
+      minmax(480px, min-content)
       min-content
       60px;
     grid-template-columns: min-content 1fr;
