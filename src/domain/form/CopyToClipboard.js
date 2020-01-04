@@ -15,12 +15,22 @@ export function CopyToClipboard({ layoutClassName, config }) {
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 384 512"
-        className={styles.svg}
+        viewBox="0 0 60 60"
+        className={styles.component}
         role='img'
+        width="60" height="60"
       >
-        <title>Clipboard icon</title>
-        <path d="M336 64h-80c0-35.3-28.7-64-64-64s-64 28.7-64 64H48C21.5 64 0 85.5 0 112v352c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48zM192 40c13.3 0 24 10.7 24 24s-10.7 24-24 24-24-10.7-24-24 10.7-24 24-24zm144 418c0 3.3-2.7 6-6 6H54c-3.3 0-6-2.7-6-6V118c0-3.3 2.7-6 6-6h42v36c0 6.6 5.4 12 12 12h168c6.6 0 12-5.4 12-12v-36h42c3.3 0 6 2.7 6 6z" />
+        <g fill="none" fillRule="evenodd">
+          <g transform="translate(10 8)" stroke="#000" strokeWidth="3">
+            <path d="M19 1.5h-9A1.5 1.5 0 008.5 3v2.5H3A1.5 1.5 0 001.5 7v30A1.5 1.5 0 003 38.5h23a1.5 1.5 0 001.5-1.5V7A1.5 1.5 0 0026 5.5h-5.5V3A1.5 1.5 0 0019 1.5z" />
+            <rect x="8.5" y="1.5" width="12" height="8" rx="3" />
+          </g>
+          <path
+            d="M39.5 50.415v.085h1-.5c-.175 0-.344-.03-.5-.085zm0-20.83a1.49 1.49 0 01.41-.082l.107-.003H39.5v.085zm2 17.915h1v6H40a4.5 4.5 0 01-4.5-4.5v-5.5h-1v-6h1V31c0-2.387 1.863-4.355 4.28-4.494L40 26.5h2.5v6h-1v15zM47.5 50.415v.085h-1 .5c.175 0 .344-.03.5-.085zm0-20.83a1.49 1.49 0 00-.41-.082l-.107-.003h.517v.085zm-2 17.915h-1v6H47a4.5 4.5 0 004.5-4.5v-5.5h1v-6h-1V31c0-2.387-1.863-4.355-4.28-4.494L47 26.5h-2.5v6h1v15z" strokeWidth="1"
+            fill="#000"
+            stroke="#f582ae"
+          />
+        </g>
       </svg>
     </Button>
   )
