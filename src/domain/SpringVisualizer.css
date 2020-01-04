@@ -1,18 +1,13 @@
 .component {
   display: flex;
-  border: 5px solid var(--color-stroke);
-  border-radius: 6px;
-  background-color: var(--color-main);
   justify-content: center;
-  padding-top: 10%;
   position: relative;
-  cursor: pointer;
   z-index: 0;
-  -webkit-tap-highlight-color: transparent;
+  padding-top: 60px;
 
   & > .springBase {
     width: 50%;
-    height: 100%; /* Safari needs this to calculate the height of its child */
+    height: 100%;
   }
 
   & > .friction {

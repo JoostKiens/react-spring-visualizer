@@ -1,28 +1,22 @@
 import styles from './SpringVisualizer.css'
+import { VisualizerContainer } from './VisualizerContainer'
 import { useRenderOnMount } from '@kaliber/use-render-on-mount'
 import { animated as a, useSpring } from 'react-spring'
 
 export function SpringVisualizer({ active, config, onClick, valueAttributes }) {
   const [{ progress }, set] = useSpring(() => ({ from: { progress: 0 }, progress: 0 }))
+  const isMounted = useRenderOnMount()
+  const { tension, mass } = config
+  const tensionModifier = 0.6 // visually present tension a bit smaller
+  const springLengthAtRest = 100
 
   React.useEffect(
-    () => {
-      set({
-        progress: active ? 1 : 0,
-        immediate: !active,
-        config
-      })
-    },
+    () => { set({ progress: active ? 1 : 0, immediate: !active, config }) },
     [active, set, config]
   )
 
-  const isMounted = useRenderOnMount()
-  const { tension, mass } = config
-  const tensionModifier = 0.8 // visually present tension a bit smaller
-  const springLengthAtRest = 100
-
   return (
-    <figure className={styles.component} {...{ onClick }}>
+    <VisualizerContainer layoutClassName={styles.component} {...{ onClick }}>
       {isMounted && (
         <>
           <Friction layoutClassName={styles.friction} friction={config.friction} />
@@ -48,7 +42,7 @@ export function SpringVisualizer({ active, config, onClick, valueAttributes }) {
           <a.span className={styles.progress}>{progress.interpolate(x => `${x.toFixed(2)}`)}</a.span>
         </>
       )}
-    </figure>
+    </VisualizerContainer>
   )
 }
 

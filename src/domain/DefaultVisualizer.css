@@ -1,14 +1,9 @@
 .component {
-  cursor: pointer;
-  border: 5px solid var(--color-stroke);
-  border-radius: 6px;
-  background-color: var(--color-main);
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   z-index: 0;
-  -webkit-tap-highlight-color: transparent;
 
   & > .opacityLayout,
   & > .scaleLayout {
