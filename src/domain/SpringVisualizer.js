@@ -3,6 +3,8 @@ import { VisualizerContainer } from './VisualizerContainer'
 import { useRenderOnMount } from '@kaliber/use-render-on-mount'
 import { animated as a, useSpring } from 'react-spring'
 
+const springHeight = 500
+
 export function SpringVisualizer({ active, config, onClick, valueAttributes }) {
   const [{ progress }, set] = useSpring(() => ({ from: { progress: 0 }, progress: 0 }))
   const isMounted = useRenderOnMount()
@@ -84,14 +86,14 @@ function Friction({ friction, layoutClassName }) {
 function Spring({ progress, tension, maxTension, springLengthAtRest, layoutClassName }) {
   const padding = 2000
   const calcScale = React.useCallback(
-    x => (springLengthAtRest + tension * (1 - x)) / (springLengthAtRest + maxTension),
+    x => (springLengthAtRest + tension * (1 - x)) / (springLengthAtRest + maxTension) * (springLengthAtRest + maxTension) / (springHeight),
     [tension, springLengthAtRest, maxTension]
   )
 
   return (
     <svg
       width="80"
-      height={500 + padding * 2}
+      height={springHeight + padding * 2}
       xmlns="http://www.w3.org/2000/svg"
       className={layoutClassName}
       style={{ transform: `translateY(-${padding}px)` }}
