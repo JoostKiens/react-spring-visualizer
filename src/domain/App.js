@@ -5,6 +5,7 @@ import { Nav } from './Nav'
 import { SpringVisualizer } from './SpringVisualizer'
 import { Documentation } from './Documentation'
 import { ContentContainer } from './ContentContainer'
+import { SiteFooter } from './SiteFooter'
 import createPersistedState from 'use-persisted-state'
 import styles from './App.css'
 
@@ -64,7 +65,12 @@ export default function App() {
       </ContentContainer>
       <div className={styles.documentation}>
         <ContentContainer>
-          <Documentation layoutClassName={styles.documentation} />
+          <Documentation />
+        </ContentContainer>
+      </div>
+      <div className={styles.siteFooter}>
+        <ContentContainer>
+          <SiteFooter />
         </ContentContainer>
       </div>
     </div>

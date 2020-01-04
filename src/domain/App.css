@@ -44,13 +44,8 @@
   & > .form { grid-area: form; }
   & > .visualizer { grid-area: visualizer; }
   & > .nav { grid-area: nav; }
-  & > .documentation { grid-area: documentation; }
 }
 
-.visualizer {
-  & > * { height: 100%; }
-}
-
-.documentation {
-  background-color: var(--color-main);
-}
+.visualizer { & > * { height: 100%; } }
+.documentation { background-color: var(--color-main); }
+.siteFooter { background-color: var(--color-prussian-blue); }
