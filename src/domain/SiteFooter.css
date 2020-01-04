@@ -1,0 +1,43 @@
+.component {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--color-solitaire);
+  padding: 20px 20px;
+  @media (--viewport-sm) { padding: 20px 30px; }
+  @media (--viewport-md) { padding: 20px 40px; }
+  @media (--viewport-lg) { padding: 30px 60px; }
+}
+
+.name { font-weight: 400; }
+
+.socialLinks {
+  display: flex;
+  & > *:not(:last-child) { margin-right: 20px; }
+}
+
+.link {
+  width: 48px !important;
+  height: 48px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover,
+  &:focus {
+    & > * > * > * > * > .path,
+    & > * > .path {
+      fill: var(--color-morning-glory);
+    }
+  }
+
+  & > svg {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.path {
+  fill: var(--color-solitaire);
+  transition: color 200ms ease-in-out;
+}

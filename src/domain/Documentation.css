@@ -1,5 +1,6 @@
 .component {
   padding: 60px 20px;
+  @media (--viewport-sm) { padding: 80px 30px; }
   @media (--viewport-md) { padding: 100px 40px; }
   @media (--viewport-lg) { padding: 120px 60px; }
 }
