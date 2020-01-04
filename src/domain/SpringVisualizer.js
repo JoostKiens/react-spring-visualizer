@@ -9,7 +9,9 @@ export function SpringVisualizer({ active, config, onClick, valueAttributes }) {
   const [{ progress }, set] = useSpring(() => ({ from: { progress: 0 }, progress: 0 }))
   const isMounted = useRenderOnMount()
   const { tension, mass } = config
-  const tensionModifier = 0.6 // visually present tension a bit smaller
+  // visually present tension height a bit smaller,
+  // ideally this would be deduced from maxTension and containe height
+  const tensionModifier = 0.6
   const springLengthAtRest = 100
 
   React.useEffect(
