@@ -8,6 +8,7 @@
   justify-content: center;
   position: relative;
   z-index: 0;
+  -webkit-tap-highlight-color: transparent;
 
   & > .opacityLayout,
   & > .scaleLayout {
