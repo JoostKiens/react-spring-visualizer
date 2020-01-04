@@ -35,8 +35,8 @@ function Button({ hash, label, Icon, layoutClassName, active }) {
     <ButtonLink
       href={`${hash}`}
       title={label}
-      onMouseOver={() => setHover(true)}
-      onMouseOut={() => setHover(false)}
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
       {...{ layoutClassName, active }}
     >
       <Icon {...{ hover }} />
