@@ -12,10 +12,10 @@ function ScrollToImage({ imageRef }) {
   return <button className={styles.componentScrollToImage} onClick={scrollToRef}>see image</button>
 }
 
-export function Documentation({ layoutClassName }) {
+export function Documentation() {
   const imageRef = React.useRef()
   return (
-    <article className={cx(styles.component, layoutClassName)}>
+    <article className={styles.component}>
       <div className={styles.documentation}>
         <section>
           <h2>What is this ?</h2>
