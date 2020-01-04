@@ -7,9 +7,9 @@ export function Nav({ layoutClassName, display }) {
   const displays = React.useMemo(
     () => [
       { hash: '#spring', label: 'Spring', Icon: SpringIcon },
+      { hash: '#translateY', label: 'Translate Y', Icon: TranslateYIcon },
       { hash: '#scale', label: 'Scale', Icon: ScaleIcon },
       { hash: '#opacity', label: 'Opacity', Icon: OpacityIcon },
-      { hash: '#translateY', label: 'Translate Y', Icon: TranslateYIcon }
     ],
     []
   )
