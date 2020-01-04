@@ -1,0 +1,52 @@
+.component {
+  padding: 60px 20px;
+  @media (--viewport-md) { padding: 100px 40px; }
+  @media (--viewport-lg) { padding: 120px 60px; }
+}
+
+.documentation {
+  & > *:not(:last-child) { margin-bottom: 4rem; }
+}
+
+.settingsLayout {
+  & > *:not(:last-child) {
+    margin-bottom: 3rem;
+
+    @media (--viewport-md) {
+      margin-left: 3rem;
+    }
+  }
+}
+
+.settings {
+  & > *:not(:last-child) { margin-bottom: 3rem; }
+}
+
+.visualContainer {
+  @media (--viewport-md) {
+    /*
+      It's been a long time,
+      shouldn't have left you
+      with some dope elements to float next to
+    */
+    float: right;
+  }
+
+  & > .visual {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.link {
+  color: currentColor;
+  text-decoration: currentColor wavy underline;
+  text-decoration-skip-ink: none;
+  position: relative;
+  z-index: 0;
+}
+
+.componentScrollToImage {
+  color: currentColor;
+  text-decoration: currentColor dashed underline;
+}

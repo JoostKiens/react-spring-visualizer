@@ -7,9 +7,9 @@ export function Nav({ layoutClassName, display }) {
   const displays = React.useMemo(
     () => [
       { hash: '#spring', label: 'Spring', Icon: SpringIcon },
+      { hash: '#translateY', label: 'Translate Y', Icon: TranslateYIcon },
       { hash: '#scale', label: 'Scale', Icon: ScaleIcon },
       { hash: '#opacity', label: 'Opacity', Icon: OpacityIcon },
-      { hash: '#translateY', label: 'Translate Y', Icon: TranslateYIcon }
     ],
     []
   )
@@ -121,7 +121,7 @@ function TranslateYIcon({ hover }) {
         <a.g style={{ transform: progress.interpolate(x => `translateY(${x * 0.1 * 100}%)`) }}>
           <rect fill={color.buttonText} x="23" y="11" width="14" height="20" rx="7" />
         </a.g>
-        <a.g style={{ opacity: progress.interpolate(x =>  (!hover && x === 0) ? 1 : 0) }}>
+        <a.g style={{ opacity: progress.interpolate(x => (!hover && x === 0) ? 1 : 0) }}>
           <path stroke={color.buttonText} strokeWidth="2" strokeLinecap="round" d="M30 34v5M27 33v3" />
         </a.g>
       </g>

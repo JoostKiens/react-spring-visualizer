@@ -1,5 +1,6 @@
 import  { animated as a, useSpring } from 'react-spring'
 import { useElementSize } from '/machinery/useElementSize'
+import { VisualizerContainer } from './VisualizerContainer'
 import styles from './DefaultVisualizer.css'
 
 export function DefaultVisualizer({ active, config, onClick, display }) {
@@ -16,11 +17,11 @@ export function DefaultVisualizer({ active, config, onClick, display }) {
   )
 
   return (
-    <section className={styles.component} {...{ onClick }}>
+    <VisualizerContainer layoutClassName={styles.component} {...{ onClick }}>
       {display === 'scale' && <Scale layoutClassName={styles.scaleLayout}{...{ active, makeSpring }} />}
       {display === 'opacity' && <Opacity layoutClassName={styles.opacityLayout}{...{ active, makeSpring }} />}
       {display === 'translateY' && <Translate layoutClassName={styles.translateLayout}{...{ active, makeSpring }} />}
-    </section>
+    </VisualizerContainer>
   )
 }
 

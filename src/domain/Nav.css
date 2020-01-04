@@ -1,11 +1,12 @@
 .component {
   display: flex;
-  justify-content: flex-end;
   align-items: flex-end;
+  justify-content: space-between;
+  @media (--viewport-md) { justify-content: flex-end; }
 
   & > .button {
     width: 60px;
-    &:not(:last-child) { margin-right: 40px; }
+    &:not(:last-child) { @media (--viewport-md) { margin-right: 40px; } }
   }
 }
 

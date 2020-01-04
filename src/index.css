@@ -17,3 +17,9 @@ body {
   @media (--viewport-sm) { font-size: var(--font-size-sm); }
   @media (--viewport-md) { font-size: var(--font-size-md); }
 }
+
+h2,
+h3,
+p {
+  &:not(:last-child) { padding-bottom: 0.8333em; }
+}
