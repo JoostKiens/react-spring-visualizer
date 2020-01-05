@@ -60,7 +60,7 @@ function SpringIcon({ hover }) {
             strokeWidth="2" strokeLinecap="round" strokeLinejoin="bevel" vectorEffect="non-scaling-stroke"
             d="M20.278 11.154l19.444 3.692M20.278 20.769l19.444-5.538M20 40l20.722-4.808M20.292 21.154l20.416 3.692M20.292 31.154l20.416 3.692M21.278 48.846l19.444-3.692M20.292 40.192l20.416 4.616M20.292 30.769l20.416-5.538"
           />
-          <path strokeWidth="4" strokeLinecap="round" d="M10 10h40M10 50h40" vectorEffect="non-scaling-stroke" />
+          <path strokeWidth="3" strokeLinecap="round" d="M10 10h40M10 50h40" vectorEffect="non-scaling-stroke" />
         </a.g>
       </g>
     </IconWrapper>
