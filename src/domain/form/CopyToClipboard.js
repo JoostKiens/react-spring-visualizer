@@ -18,8 +18,6 @@ export function CopyToClipboard({ layoutClassName, config }) {
   const { progress } = useSpring({
     from: { progress: 0 },
     progress: hover ? 1 : 0,
-    reset: true,
-    immediate: !hover,
     config: { mass: 1.9, tension: 180, friction: 28, velocity: -3 }
   })
 
