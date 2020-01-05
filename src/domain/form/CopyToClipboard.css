@@ -1,3 +1,20 @@
 .component {
   fill: currentColor;
+  position: relative;
+  z-index: 0;
+
+  & > .message {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    left: 0;
+    z-index: -1;
+  }
+}
+
+.message {
+  display: block;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1;
 }
