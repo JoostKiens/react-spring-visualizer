@@ -1,15 +1,3 @@
-.app {
-  display: flex;
-  justify-content: center;
-  min-height: 100vh !important;
-  overflow: hidden;
-
-  & > .layout {
-    max-width: 1000px;
-    width: 100%;
-  }
-}
-
 .layout {
   padding: 20px 20px 220px;
   display: grid;
@@ -22,7 +10,7 @@
   grid-template-rows:
     min-content
     min-content
-    400px
+    minmax(500px, 80vh)
     min-content;
   grid-gap: 20px;
 
@@ -39,7 +27,7 @@
       "form nav";
     grid-template-rows:
       min-content
-      minmax(400px, min-content)
+      minmax(480px, min-content)
       min-content
       60px;
     grid-template-columns: min-content 1fr;
@@ -58,6 +46,6 @@
   & > .nav { grid-area: nav; }
 }
 
-.visualizer {
-  & > * { height: 100%; }
-}
+.visualizer { & > * { height: 100%; } }
+.documentation { background-color: var(--color-main); }
+.siteFooter { background-color: var(--color-prussian-blue); }

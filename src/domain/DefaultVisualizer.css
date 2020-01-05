@@ -1,8 +1,4 @@
 .component {
-  cursor: pointer;
-  border: 5px solid var(--color-stroke);
-  border-radius: 6px;
-  background-color: var(--color-main);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -10,6 +6,7 @@
   z-index: 0;
 
   & > .opacityLayout,
+  & > .rotateLayout,
   & > .scaleLayout {
     width: 66.67%;
     height: 66.67%;
@@ -30,6 +27,7 @@
 
 .componentScale,
 .componentOpacity,
+.componentRotate,
 .componentTranslate {
   position: relative;
   z-index: 0;
@@ -42,11 +40,26 @@
   }
 }
 
-.componentOpacity {
-  & > .progress {
-    right: 60px;
+.componentRotate {
+  & > .rotateContainer {
+    width: 100%;
+    height: 100%;
   }
 }
+
+.rotateContainer {
+  background-color: var(--color-secondary);
+  border: 3px solid var(--color-stroke);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  & > .rotate {
+    width: 90%;
+    height: 50%;
+  }
+}
+
 .componentScale {
   position: relative;
   background-color: var(--color-secondary);
@@ -80,6 +93,7 @@
   border-radius: 4px;
 }
 
+.rotate,
 .scale {
   background-color: var(--color-highlight);
   border: 5px solid var(--color-stroke);
@@ -101,6 +115,10 @@
   & > .legend {
     flex: 0 0 40px;
     height: 100%;
+  }
+
+  & > .progress {
+    right: 60px;
   }
 }
 

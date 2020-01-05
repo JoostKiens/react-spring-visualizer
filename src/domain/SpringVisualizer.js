@@ -1,18 +1,20 @@
 import styles from './SpringVisualizer.css'
+import { VisualizerContainer } from './VisualizerContainer'
 import { useRenderOnMount } from '@kaliber/use-render-on-mount'
 import { useElementSize } from '/machinery/useElementSize'
 import { animated as a, useSpring } from 'react-spring'
 import SVGCatmullRomSpline from 'svg-catmull-rom-spline'
 
-export function SpringVisualizer({ active, config, onClick, layoutClassName, valueAttributes }) {
+const springHeight = 500
+
+export function SpringVisualizer({ active, config, onClick, valueAttributes }) {
   const valuesRef = React.useRef([])
   const componentRef = React.useRef()
   const [chartValues, setChartValues] = React.useState(null)
   const { width, height } = useElementSize(componentRef)
-  // @ts-ignore
   const [{ progress }, set] = useSpring(() => ({
     from: { progress: 0 },
-    progress: 0,
+    progress: 0 ,
     onStart: () => { valuesRef.current = [] },
     onFrame: ({ progress }) => { valuesRef.current.push(progress) },
     onRest: () => {
@@ -20,24 +22,20 @@ export function SpringVisualizer({ active, config, onClick, layoutClassName, val
     }
   }))
 
+  const isMounted = useRenderOnMount()
+  const { tension, mass } = config
+  // visually present tension height a bit smaller,
+  // ideally this would be deduced from maxTension and containe height
+  const tensionModifier = 0.6
+  const springLengthAtRest = 100
+
   React.useEffect(
-    () => {
-      set({
-        progress: active ? 1 : 0,
-        immediate: !active,
-        config
-      })
-    },
+    () => { set({ progress: active ? 1 : 0, immediate: !active, config }) },
     [active, set, config]
   )
 
-  const isMounted = useRenderOnMount()
-  const { tension, mass } = config
-  const tensionModifier = 0.8 // visually present tension a bit smaller
-  const springLengthAtRest = 100
-
   return (
-    <figure className={cx(styles.component, layoutClassName)} {...{ onClick }} ref={componentRef}>
+    <VisualizerContainer layoutClassName={styles.component} {...{ onClick }} ref={componentRef}>
       {isMounted && (
         <>
           <Chart layoutClassName={styles.chart} values={chartValues} {...{ width, height }} />
@@ -64,7 +62,7 @@ export function SpringVisualizer({ active, config, onClick, layoutClassName, val
           <a.span className={styles.progress}>{progress.interpolate(x => `${x.toFixed(2)}`)}</a.span>
         </>
       )}
-    </figure>
+    </VisualizerContainer>
   )
 }
 
@@ -106,14 +104,14 @@ function Friction({ friction, layoutClassName }) {
 function Spring({ progress, tension, maxTension, springLengthAtRest, layoutClassName }) {
   const padding = 2000
   const calcScale = React.useCallback(
-    x => (springLengthAtRest + tension * (1 - x)) / (springLengthAtRest + maxTension),
+    x => (springLengthAtRest + tension * (1 - x)) / (springLengthAtRest + maxTension) * (springLengthAtRest + maxTension) / (springHeight),
     [tension, springLengthAtRest, maxTension]
   )
 
   return (
     <svg
       width="80"
-      height={500 + padding * 2}
+      height={springHeight + padding * 2}
       xmlns="http://www.w3.org/2000/svg"
       className={layoutClassName}
       style={{ transform: `translateY(-${padding}px)` }}

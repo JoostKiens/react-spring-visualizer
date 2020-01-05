@@ -1,0 +1,9 @@
+.component {
+  display: flex;
+  justify-content: center;
+
+  & > .inner {
+    max-width: 1000px;
+    width: 100%;
+  }
+}
