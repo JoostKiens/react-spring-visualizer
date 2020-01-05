@@ -9,6 +9,7 @@ export function Nav({ layoutClassName, display }) {
       { hash: '#spring', label: 'Spring', Icon: SpringIcon },
       { hash: '#translateY', label: 'Translate Y', Icon: TranslateYIcon },
       { hash: '#scale', label: 'Scale', Icon: ScaleIcon },
+      { hash: '#rotate', label: 'Rotate', Icon: RotateIcon },
       { hash: '#opacity', label: 'Opacity', Icon: OpacityIcon },
     ],
     []
@@ -60,7 +61,7 @@ function SpringIcon({ hover }) {
             strokeWidth="2" strokeLinecap="round" strokeLinejoin="bevel" vectorEffect="non-scaling-stroke"
             d="M20.278 11.154l19.444 3.692M20.278 20.769l19.444-5.538M20 40l20.722-4.808M20.292 21.154l20.416 3.692M20.292 31.154l20.416 3.692M21.278 48.846l19.444-3.692M20.292 40.192l20.416 4.616M20.292 30.769l20.416-5.538"
           />
-          <path strokeWidth="4" strokeLinecap="round" d="M10 10h40M10 50h40" vectorEffect="non-scaling-stroke" />
+          <path strokeWidth="3" strokeLinecap="round" d="M10 10h40M10 50h40" vectorEffect="non-scaling-stroke" />
         </a.g>
       </g>
     </IconWrapper>
@@ -80,7 +81,7 @@ function ScaleIcon({ hover }) {
         <rect fill={color.buttonText} x="22" y="22" width="16" height="16" rx="2" />
       </a.g>
       <a.g style={{ opacity: progress.interpolate(x => 1 - x) }} stroke={color.buttonText}>
-        <rect strokeWidth="4" x="10" y="10" width="40" height="40" rx="2" fill="none" />
+        <rect strokeWidth="3" x="10" y="10" width="40" height="40" rx="2" fill="none" />
         <path strokeWidth="2" strokeLinecap="round" d="M16.5 44.5l4-4M40 20l4-4M40 40l4 4M16 16l4 4" />
       </a.g>
     </IconWrapper>
@@ -123,6 +124,31 @@ function TranslateYIcon({ hover }) {
         </a.g>
         <a.g style={{ opacity: progress.interpolate(x => (!hover && x === 0) ? 1 : 0) }}>
           <path stroke={color.buttonText} strokeWidth="2" strokeLinecap="round" d="M30 34v5M27 33v3" />
+        </a.g>
+      </g>
+    </IconWrapper>
+  )
+}
+
+function RotateIcon({ hover }) {
+  const { progress } = useSpring({
+    from: { progress: 0 },
+    progress: hover ? 1 : 0,
+    config: { mass: 1, tension: 170, friction: 20 }
+  })
+
+  return (
+    <IconWrapper>
+      <g fill="none" fillRule="evenodd">
+        <a.rect
+          stroke="none"
+          fill={color.buttonText}
+          transform={progress.interpolate(x => `rotate(${60 - x * 60} 30 30)`)}
+          x="12" y="12" width="36" height="36" rx="2"
+        />
+        <a.g style={{ opacity: progress.interpolate(x => 1 - x) }} transform="translate(-4 -4)">
+          <path fill={color.buttonText} d="M13.7 16.4l6.6-1.4-3.7-4.7z" />
+          <path d="M25.3 10.6c-2.4-.4-4.6.2-6.6 1.7" stroke={color.buttonText} strokeWidth="2" strokeLinecap="round" />
         </a.g>
       </g>
     </IconWrapper>

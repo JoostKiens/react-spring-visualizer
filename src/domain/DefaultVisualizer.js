@@ -21,7 +21,24 @@ export function DefaultVisualizer({ active, config, onClick, display }) {
       {display === 'scale' && <Scale layoutClassName={styles.scaleLayout}{...{ active, makeSpring }} />}
       {display === 'opacity' && <Opacity layoutClassName={styles.opacityLayout}{...{ active, makeSpring }} />}
       {display === 'translateY' && <Translate layoutClassName={styles.translateLayout}{...{ active, makeSpring }} />}
+      {display === 'rotate' && <Rotate layoutClassName={styles.rotateLayout}{...{ active, makeSpring }} />}
     </VisualizerContainer>
+  )
+}
+
+function Rotate({ active, layoutClassName, makeSpring }) {
+  const { progress } = useSpring(makeSpring(active))
+
+  return (
+    <div className={cx(styles.componentRotate, layoutClassName)}>
+      <a.span className={styles.progress}>{progress.interpolate(x => `${Math.round(x * 90)}°`)}</a.span>
+      <div className={styles.rotateContainer}>
+        <a.div
+          className={styles.rotate}
+          style={{ transform: progress.interpolate(x => `rotate(${x * -90}deg)`) }}
+        />
+      </div>
+    </div>
   )
 }
 

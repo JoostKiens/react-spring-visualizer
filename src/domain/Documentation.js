@@ -106,7 +106,7 @@ export function Documentation() {
                 </p>
 
                 <p>
-                  You might want to use this when animating <a className={styles.link} href="#opacity">opacity</a>, a bounce effect is probably not what you are looking for. The same goes for animating to a scale of 0, usually you don't want to show a negative scale, which would flip the animated component.
+                  You might want to use this when animating opacity, a bounce effect is probably not what you are looking for. The same goes for animating to a scale of 0, usually you don't want to show a negative scale, which would flip the animated component.
                 </p>
 
                 <p>
