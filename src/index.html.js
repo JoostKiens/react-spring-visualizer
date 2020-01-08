@@ -26,15 +26,15 @@ export default (
       {stylesheet}
       {polyfill(['default', 'es2015', 'es2016', 'es2017', 'es2018', 'es2019', 'ResizeObserver'])}
       {javascript}
-      <link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png" />
-      <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32x32.png" />
-      <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png" />
-      <link rel="manifest" href="/static/site.webmanifest" />
-      <link rel="mask-icon" href="/static/safari-pinned-tab.svg" color="#001858" />
-      <link rel="shortcut icon" href="/static/favicon.ico" />
+      <link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png?v=rMJr6qL62p" />
+      <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32x32.png?v=rMJr6qL62p" />
+      <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png?v=rMJr6qL62p" />
+      <link rel="manifest" href="/static/site.webmanifest?v=rMJr6qL62p" />
+      <link rel="mask-icon" href="/static/safari-pinned-tab.svg?v=rMJr6qL62p" color="#001858" />
+      <link rel="shortcut icon" href="/static/favicon.ico?v=rMJr6qL62p" />
       <meta name="msapplication-TileColor" content="#001858" />
-      <meta name="msapplication-config" content="/static/browserconfig.xml" />
-      <meta name="theme-color" content="#fef6e4" />
+      <meta name="msapplication-config" content="/static/browserconfig.xml?v=rMJr6qL62p" />
+      <meta name="theme-color" content="#FEF6E4" />
       <link rel="canonical" href="https://react-spring-visualizer.joostkiens.com/" />
       <script async src="https://www.googletagmanager.com/gtag/js?id=UA-37283269-2" />
       <script dangerouslySetInnerHTML={{ __html: `
