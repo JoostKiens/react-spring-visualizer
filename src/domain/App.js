@@ -6,6 +6,7 @@ import { SpringVisualizer } from './SpringVisualizer'
 import { Documentation } from './Documentation'
 import { ContentContainer } from './ContentContainer'
 import { SiteFooter } from './SiteFooter'
+import { defaultValues } from './values'
 import createPersistedState from 'use-persisted-state'
 import styles from './App.css'
 
@@ -21,7 +22,7 @@ const valueAttributes = {
 export default function App() {
   const [display, setDisplay] = React.useState('spring')
   const [active, setActive] = React.useState(false)
-  const formState = useFormState({ mass: 1, tension: 170, friction: 26, clamp: false, precision: 0.01, velocity: 0 })
+  const formState = useFormState(defaultValues)
   const config = formState[0]
 
   const play = React.useCallback(
