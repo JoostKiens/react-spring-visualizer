@@ -1,0 +1,21 @@
+.component {
+  position: relative;
+
+  & > .legend {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    left: 20px;
+  }
+}
+
+.legend {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  @media screen and (min-width: 450px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
