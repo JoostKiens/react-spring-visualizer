@@ -1,6 +1,7 @@
 import { useClipboard } from 'use-clipboard-copy'
 import { Button } from './Button'
 import { animated as a, useSpring } from 'react-spring'
+import { defaultValues } from '/domain/values'
 import styles from './CopyToClipboard.css'
 import color from '/cssGlobal/color.css'
 
@@ -37,7 +38,12 @@ export function CopyToClipboard({ layoutClassName, config }) {
 
   const handleClick = React.useCallback(
     () => {
-      clipboard.copy(JSON.stringify(config, null, 2).replace(/"/g, ''))
+      const configWithoutDefaultValues = Object.keys(config).reduce(
+        (res, key) => config[key] !== defaultValues[key] ? { ...res, [key]: config[key] } : res,
+        {}
+      )
+
+      clipboard.copy(JSON.stringify(configWithoutDefaultValues, null, 2).replace(/"/g, ''))
       setShowMessage(true)
     },
     [clipboard, config]
