@@ -37,8 +37,8 @@
   }
 
   @media (--viewport-lg) {
-    padding: 30px 60px 60px;
-    grid-row-gap: 30px;
+    padding: 40px 60px 60px;
+    grid-row-gap: 60px;
     grid-column-gap: 60px;
   }
 

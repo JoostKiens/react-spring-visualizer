@@ -1,19 +1,19 @@
 {
-    "name": "",
-    "short_name": "",
+    "name": "React-spring visualizer",
+    "short_name": "React-spring visualizer",
     "icons": [
         {
-            "src": "/static/android-chrome-192x192.png",
+            "src": "/static/android-chrome-192x192.png?v=rMJr6qL62p",
             "sizes": "192x192",
             "type": "image/png"
         },
         {
-            "src": "/static/android-chrome-256x256.png",
-            "sizes": "256x256",
+            "src": "/static/android-chrome-512x512.png?v=rMJr6qL62p",
+            "sizes": "512x512",
             "type": "image/png"
         }
     ],
-    "theme_color": "#FEF6E4",
-    "background_color": "#FEF6E4",
+    "theme_color": "#ffffff",
+    "background_color": "#ffffff",
     "display": "standalone"
 }
