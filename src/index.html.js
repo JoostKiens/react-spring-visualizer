@@ -6,12 +6,22 @@ import javascript from '@kaliber/build/lib/javascript'
 import polyfill from '@kaliber/build/lib/polyfill'
 import App from '/domain/App?universal'
 
+const title = 'React-spring visualizer, get the best configuration'
+const description = 'The missing visualizer for your react-spring UI animations. Check scale, translate, rotate, opacity & more'
+
 export default (
   <html lang='en'>
     <head>
       <meta charSet='utf-8' />
-      <title>React Spring visualizer</title>
-      <meta name='description' content='Visualize your spring config for react-spring.' />
+      <title {...{ title }} />
+      <meta name='description' content={description} />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      <meta property="og:og:site_name" content='React-spring visualizer' />
+      <meta property="og:type" content="website" />
+      <meta property="og:image" content="https://react-spring-visualizer.joostkiens.com/static/og-image.png" />
+      <meta property="og:image:width" content="2484" />
+      <meta property="og:image:height" content="1872" />
       <meta name='viewport' content='width=device-width, initial-scale=1' />
       {stylesheet}
       {polyfill(['default', 'es2015', 'es2016', 'es2017', 'es2018', 'es2019', 'ResizeObserver'])}

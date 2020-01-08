@@ -2597,6 +2597,11 @@ cyclist@^1.0.1:
   resolved "https://registry.yarnpkg.com/cyclist/-/cyclist-1.0.1.tgz#596e9698fd0c80e12038c2b82d6eb1b35b6224d9"
   integrity sha1-WW6WmP0MgOEgOMK4LW6xs1tiJNk=
 
+d3-ease@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/d3-ease/-/d3-ease-1.0.6.tgz#ebdb6da22dfac0a22222f2d4da06f66c416a0ec0"
+  integrity sha512-SZ/lVU7LRXafqp7XtIcBdxnWl8yyLpgOmzAk0mWBI9gXNzLDx5ybZgnRbH9dN/yY5tzVBqCQ9avltSnqVwessQ==
+
 damerau-levenshtein@^1.0.4:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/damerau-levenshtein/-/damerau-levenshtein-1.0.5.tgz#780cf7144eb2e8dbd1c3bb83ae31100ccc31a414"
@@ -7995,6 +8000,11 @@ simple-swizzle@^0.2.2:
   dependencies:
     is-arrayish "^0.3.1"
 
+simplify-js@^1.2.1:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/simplify-js/-/simplify-js-1.2.3.tgz#a3422c1b9884d60421345eb44d2b872662df27f5"
+  integrity sha512-0IkEqs+5c5vROkHaifGfbqHf5tYDcsTBy6oJPRbFCSwp2uzEr+PpH3dNP7wD8O3d7zdUCjLVq1/xHkwA/JjlFA==
+
 slash@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/slash/-/slash-2.0.0.tgz#de552851a1759df3a8f206535442f5ec4ddeab44"
@@ -8511,6 +8521,13 @@ supports-color@^6.1.0:
   integrity sha512-qe1jfm1Mg7Nq/NSh6XE24gPXROEVsWHxC1LIx//XNlD9iw7YZQGjZNjYN7xGaEG6iKdA8EtNFW6R0gjnVXp+wQ==
   dependencies:
     has-flag "^3.0.0"
+
+svg-catmull-rom-spline@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/svg-catmull-rom-spline/-/svg-catmull-rom-spline-0.0.1.tgz#ae3bf714db19ad0a7657d76056c3da8b1856cfd8"
+  integrity sha1-rjv3FNsZrQp2V9dgVsPaixhWz9g=
+  dependencies:
+    simplify-js "^1.2.1"
 
 svg-tags@^1.0.0:
   version "1.0.0"

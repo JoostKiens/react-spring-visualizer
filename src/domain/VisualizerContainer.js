@@ -1,5 +1,10 @@
 import styles from './VisualizerContainer.css'
 
-export function VisualizerContainer({ children, onClick, layoutClassName }) {
-  return <section className={cx(styles.component, layoutClassName)} {...{ onClick, children }} />
+export const VisualizerContainer = React.forwardRef(ActualVisualizerContainer)
+
+function ActualVisualizerContainer({ children, onClick, layoutClassName }, ref) {
+  return <section
+    className={cx(styles.componentActualVisualizerContainer, layoutClassName)}
+    {...{ onClick, children, ref }}
+  />
 }

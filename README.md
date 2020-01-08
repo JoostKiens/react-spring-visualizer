@@ -6,6 +6,7 @@
 
 A simple visualizer to help find the correct spring config for [React Spring](https://www.react-spring.io/).
 
+![Screenshot of React Spring Visualizer](https://raw.githubusercontent.com/JoostKiens/react-spring-visualizer/master/screenshot.png)
 ```
 yarn
 

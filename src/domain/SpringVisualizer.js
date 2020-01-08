@@ -1,52 +1,103 @@
 import styles from './SpringVisualizer.css'
 import { VisualizerContainer } from './VisualizerContainer'
 import { useRenderOnMount } from '@kaliber/use-render-on-mount'
+import { useElementSize } from '/machinery/useElementSize'
+import { useTimeout } from '/machinery/useTimeout'
+import { Chart } from './Chart'
 import { animated as a, useSpring } from 'react-spring'
 
 const springHeight = 500
 
 export function SpringVisualizer({ active, config, onClick, valueAttributes }) {
-  const [{ progress }, set] = useSpring(() => ({ from: { progress: 0 }, progress: 0 }))
+  const valuesRef = React.useRef([])
+  const performanceRef = React.useRef(undefined)
+  const durationRef = React.useRef(undefined)
+  const componentRef = React.useRef()
+  const [chartValues, setChartValues] = React.useState(null)
+  const [showChart, setShowChart] = React.useState(false)
+  const { width: containerWidth, height: containerHeight } = useElementSize(componentRef)
+  const [{ progress }, set] = useSpring(() => ({ progress: 0 }))
   const isMounted = useRenderOnMount()
+
+  React.useEffect(
+    () => {
+      if (!active) {
+        setChartValues(null)
+        setShowChart(false)
+      }
+    },
+    [active]
+  )
+
+  React.useEffect(
+    () => {
+      set({
+        from: { progress: 0 },
+        progress: active ? 1 : 0,
+        immediate: !active,
+        onStart: () => {
+          performanceRef.current = window.performance.now()
+          valuesRef.current = []
+        },
+        // @ts-ignore
+        onFrame: ({ progress }) => { valuesRef.current.push(progress) },
+        onRest: () => {
+          if (!active) return
+          durationRef.current = window.performance.now() - performanceRef.current
+          setChartValues({ values: valuesRef.current, duration: durationRef.current })
+        },
+        config
+      })
+    },
+    [active, set, config]
+  )
+
+  useTimeout(() => { chartValues && setShowChart(true) }, 360, [chartValues] )
+
+  return (
+    <VisualizerContainer layoutClassName={styles.component} {...{ onClick }} ref={componentRef}>
+      {isMounted && (
+        showChart
+          ? <Chart
+            layoutClassName={styles.chart} values={chartValues.values} duration={chartValues.duration}
+            {...{ containerWidth, containerHeight }}
+          />
+          : <Visualizer {...{ config, valueAttributes, progress }} />
+      )}
+    </VisualizerContainer>
+  )
+}
+
+function Visualizer({ config, valueAttributes, progress }) {
   const { tension, mass } = config
   // visually present tension height a bit smaller,
   // ideally this would be deduced from maxTension and containe height
   const tensionModifier = 0.6
   const springLengthAtRest = 100
-
-  React.useEffect(
-    () => { set({ progress: active ? 1 : 0, immediate: !active, config }) },
-    [active, set, config]
-  )
-
   return (
-    <VisualizerContainer layoutClassName={styles.component} {...{ onClick }}>
-      {isMounted && (
-        <>
-          <Friction layoutClassName={styles.friction} friction={config.friction} />
-          <div className={styles.springBase}>
-            <div className={styles.ceiling} />
-            <Spring
-              layoutClassName={styles.spring}
-              maxTension={valueAttributes.tension.max * tensionModifier}
-              tension={tension * tensionModifier}
-              {...{ progress, springLengthAtRest }}
-            />
-            <Bob
-              layoutClassName={styles.bob}
-              tension={tension * tensionModifier}
-              {...{ progress, springLengthAtRest, mass }}
-            />
-            <div
-              className={cx(styles.springLengthAtRest, config.clamp && styles.isClamped)}
-              style={{ marginTop: springLengthAtRest }}
-            />
-          </div>
+    <>
+      <Friction layoutClassName={styles.friction} friction={config.friction} />
+      <div className={styles.springBase}>
+        <div className={styles.ceiling} />
+        <Spring
+          layoutClassName={styles.spring}
+          maxTension={valueAttributes.tension.max * tensionModifier}
+          tension={tension * tensionModifier}
+          {...{ progress, springLengthAtRest }}
+        />
+        <Bob
+          layoutClassName={styles.bob}
+          tension={tension * tensionModifier}
+          {...{ progress, springLengthAtRest, mass }}
+        />
+        <div
+          className={cx(styles.springLengthAtRest, config.clamp && styles.isClamped)}
+          style={{ marginTop: springLengthAtRest }}
+        />
+      </div>
 
-          <a.span className={styles.progress}>{progress.interpolate(x => `${x.toFixed(2)}`)}</a.span>
-        </>
-      )}
-    </VisualizerContainer>
+      <a.span className={styles.progress}>{progress.interpolate(x => `${x.toFixed(2)}`)}</a.span>
+    </>
   )
 }
 

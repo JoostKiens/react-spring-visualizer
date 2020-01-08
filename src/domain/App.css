@@ -10,7 +10,7 @@
   grid-template-rows:
     min-content
     min-content
-    minmax(500px, 80vh)
+    minmax(500px, 65vh)
     min-content;
   grid-gap: 20px;
 
@@ -31,13 +31,15 @@
       min-content
       60px;
     grid-template-columns: min-content 1fr;
-    padding: 40px;
-    grid-gap: 40px;
+    padding: 20px 40px 40px;
+    grid-row-gap: 20px;
+    grid-column-gap: 40px;
   }
 
   @media (--viewport-lg) {
-    padding: 60px;
-    grid-gap: 60px;
+    padding: 30px 60px 60px;
+    grid-row-gap: 30px;
+    grid-column-gap: 60px;
   }
 
   & > .header { grid-area: header; }

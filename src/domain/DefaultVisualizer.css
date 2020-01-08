@@ -50,6 +50,7 @@
 .rotateContainer {
   background-color: var(--color-secondary);
   border: 3px solid var(--color-stroke);
+  border-radius: 4px;
   display: flex;
   align-items: center;
   justify-content: center;

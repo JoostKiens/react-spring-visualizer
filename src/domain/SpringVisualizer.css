@@ -3,9 +3,15 @@
   justify-content: center;
   position: relative;
   z-index: 0;
-  padding-top: 60px;
+
+  & > .chart {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
 
   & > .springBase {
+    margin-top: 60px;
     width: 50%;
     height: 100%;
   }

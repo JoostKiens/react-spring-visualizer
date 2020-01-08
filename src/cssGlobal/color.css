@@ -24,4 +24,7 @@
 :export {
   buttonText: var(--color-button-text);
   button: var(--color-button);
+  stroke: var(--color-stroke);
+  secondary: var(--color-secondary);
+  background: var(--color-background);
 }
