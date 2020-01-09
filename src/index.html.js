@@ -6,14 +6,14 @@ import javascript from '@kaliber/build/lib/javascript'
 import polyfill from '@kaliber/build/lib/polyfill'
 import App from '/domain/App?universal'
 
-const title = 'React-spring visualizer, get the best configuration'
+const title = 'React-spring visualizer, tweak your spring configuration'
 const description = 'The missing visualizer for your react-spring UI animations. Check scale, translate, rotate, opacity & more'
 
 export default (
   <html lang='en'>
     <head>
       <meta charSet='utf-8' />
-      <title {...{ title }} />
+      <title>{title}</title>
       <meta name='description' content={description} />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />

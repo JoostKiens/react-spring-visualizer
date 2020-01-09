@@ -38,8 +38,13 @@
 
   @media (--viewport-lg) {
     padding: 40px 60px 60px;
-    grid-row-gap: 60px;
+    grid-row-gap: 40px;
     grid-column-gap: 60px;
+  }
+
+  @media screen and (min-height: 930px) {
+    padding: 60px;
+    grid-row-gap: 60px;
   }
 
   & > .header { grid-area: header; }
