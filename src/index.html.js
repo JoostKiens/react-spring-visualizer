@@ -19,7 +19,7 @@ export default (
       <meta property="og:description" content={description} />
       <meta property="og:og:site_name" content='React-spring visualizer' />
       <meta property="og:type" content="website" />
-      <meta property="og:image" content="https://react-spring-visualizer.joostkiens.com/static/og-image.png" />
+      <meta property="og:image" content="https://react-spring-visualizer.com/static/og-image.png" />
       <meta property="og:image:width" content="2484" />
       <meta property="og:image:height" content="1872" />
       <meta name='viewport' content='width=device-width, initial-scale=1' />
@@ -35,7 +35,7 @@ export default (
       <meta name="msapplication-TileColor" content="#001858" />
       <meta name="msapplication-config" content="/static/browserconfig.xml?v=rMJr6qL62p" />
       <meta name="theme-color" content="#FEF6E4" />
-      <link rel="canonical" href="https://react-spring-visualizer.joostkiens.com/" />
+      <link rel="canonical" href="https://react-spring-visualizer.com/" />
       <script async src="https://www.googletagmanager.com/gtag/js?id=UA-37283269-2" />
       <script dangerouslySetInnerHTML={{ __html: `
         window.dataLayer = window.dataLayer || [];
