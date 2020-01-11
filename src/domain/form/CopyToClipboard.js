@@ -2,6 +2,7 @@ import { useClipboard } from 'use-clipboard-copy'
 import { Button } from './Button'
 import { animated as a, useSpring } from 'react-spring'
 import { defaultValues } from '/domain/values'
+import { track } from '/domain/track'
 import styles from './CopyToClipboard.css'
 import color from '/cssGlobal/color.css'
 
@@ -45,6 +46,7 @@ export function CopyToClipboard({ layoutClassName, config }) {
 
       clipboard.copy(JSON.stringify(configWithoutDefaultValues, null, 2).replace(/"/g, ''))
       setShowMessage(true)
+      track({ 'event': 'copy-to-clipboard' })
     },
     [clipboard, config]
   )

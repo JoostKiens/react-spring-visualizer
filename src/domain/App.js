@@ -7,6 +7,7 @@ import { Documentation } from './Documentation'
 import { ContentContainer } from './ContentContainer'
 import { SiteFooter } from './SiteFooter'
 import { defaultValues } from './values'
+import { track } from './track'
 import createPersistedState from 'use-persisted-state'
 import styles from './App.css'
 
@@ -25,16 +26,6 @@ export default function App() {
   const formState = useFormState(defaultValues)
   const config = formState[0]
 
-  const play = React.useCallback(
-    evt => {
-      evt && evt.preventDefault()
-      setActive(x => !x)
-    },
-    [setActive]
-  )
-
-  React.useEffect(() => { setActive(false) }, [config])
-
   React.useEffect(
     () => {
       navigate()
@@ -43,11 +34,24 @@ export default function App() {
 
       function navigate() {
         setActive(false)
-        setDisplay(window.location.hash.replace('#', '') || 'spring')
+        const display = window.location.hash.replace('#', '') || 'spring'
+        setDisplay(display)
+        track({ 'visualizer': display })
       }
     },
     []
   )
+
+  const play = React.useCallback(
+    evt => {
+      evt && evt.preventDefault()
+      setActive(x => !x)
+    },
+    [setActive]
+  )
+
+  React.useEffect(() => { if (active) track({ 'play': true }) }, [active])
+  React.useEffect(() => { setActive(false) }, [config])
 
   return (
     <div className={styles.app}>
