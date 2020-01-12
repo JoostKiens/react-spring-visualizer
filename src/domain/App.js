@@ -11,7 +11,7 @@ import { track } from './track'
 import createPersistedState from 'use-persisted-state'
 import styles from './App.css'
 
-const useFormState = createPersistedState('config')
+
 const valueAttributes = {
   mass: { min: 0.1, max: 20, step: 0.1 },
   tension: { min: 1, max: 500, step: 1 },
@@ -21,6 +21,8 @@ const valueAttributes = {
 }
 
 export default function App() {
+  // @ts-ignore
+  const useFormState = createPersistedState('config', global.sessionStorage)
   const [display, setDisplay] = React.useState('spring')
   const [active, setActive] = React.useState(false)
   const formState = useFormState(defaultValues)
@@ -99,4 +101,16 @@ function Ph({ layoutCLassName }) {
       />
     </a>
   )
+}
+
+function isLocalStorageSupported() {
+  const testKey = 'test'
+  const storage = global.localStorage
+  try {
+    storage.setItem(testKey, '1')
+    storage.removeItem(testKey)
+    return true
+  } catch (error) {
+    return false
+  }
 }
