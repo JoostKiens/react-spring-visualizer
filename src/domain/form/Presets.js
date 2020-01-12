@@ -15,13 +15,7 @@ export function Presets({ formState: [formValues, setFormValues], layoutClassNam
     [setFormValues, onChange]
   )
 
-  const value = React.useMemo(
-    () => {
-      const { mass, tension, friction } = formValues
-      return JSON.stringify({ mass, tension, friction })
-    },
-    [formValues]
-  )
+  const value = React.useMemo(() => JSON.stringify(formValues), [formValues])
 
   return (
     <div className={cx(layoutClassName, styles.component)}>
