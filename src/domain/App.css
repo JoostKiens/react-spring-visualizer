@@ -1,3 +1,15 @@
+.app {
+  position: relative;
+  z-index: 0;
+
+  & > .ph {
+    z-index: 1;
+    position: fixed;
+    right: 20px;
+    top: 20px;
+  }
+}
+
 .layout {
   padding: 20px 20px 220px;
   display: grid;

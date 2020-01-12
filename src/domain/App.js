@@ -55,6 +55,7 @@ export default function App() {
 
   return (
     <div className={styles.app}>
+      <Ph layoutCLassName={styles.ph} />
       <ContentContainer>
         <div className={styles.layout}>
           <Header layoutClassName={styles.header} />
@@ -79,5 +80,23 @@ export default function App() {
         </ContentContainer>
       </div>
     </div>
+  )
+}
+
+
+function Ph({ layoutCLassName }) {
+  return (
+    <a
+      href="https://www.producthunt.com/posts/react-spring-visualizer?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-react-spring-visualizer"
+      target="_blank"
+      rel="noopener noreferrer"
+      className={layoutCLassName}
+    >
+      <img
+        src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=180624&theme=dark"
+        alt="React-spring visualizer - The missing visualizer for your react-spring UI animations | Product Hunt Embed"
+        style={{ width: 250, height: 54 }} width="250px" height="54px"
+      />
+    </a>
   )
 }
