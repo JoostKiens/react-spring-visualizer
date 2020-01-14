@@ -71,7 +71,7 @@ export function SpringVisualizer({ active, config, onClick, valueAttributes }) {
 function Visualizer({ config, valueAttributes, progress }) {
   const { tension, mass } = config
   // visually present tension height a bit smaller,
-  // ideally this would be deduced from maxTension and containe height
+  // ideally this would be deduced from maxTension and container height
   const tensionModifier = 0.6
   const springLengthAtRest = 100
   return (

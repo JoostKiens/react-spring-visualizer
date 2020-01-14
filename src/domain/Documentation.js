@@ -123,6 +123,11 @@ export function Documentation() {
             </div>
           </div>
         </section>
+        <small>
+          <p>
+            Color scheme from <a href='https://www.happyhues.co/palettes/17' className={styles.link}>Happy Hues</a> bij Mackenzie Child.
+          </p>
+        </small>
       </div>
     </article>
   )
