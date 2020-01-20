@@ -53,7 +53,7 @@ export function Documentation() {
                 <h3>Tension</h3>
 
                 <p>
-                  Each spring has a certain stiffness. This is also called the spring constant or tension. In the real world it is caused by properties like the material and coil thickness and other.
+                  Each spring has a certain stiffness. This is also called the spring constant or tension. In the real world it is caused by properties like the material and coil thickness.
                 </p>
 
                 <p>
