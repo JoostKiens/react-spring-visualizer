@@ -15,7 +15,7 @@
 }
 
 .numberInput {
-  border: 3px solid var(--color-stroke);
+  border: 3px solid var(--color-input-border);
   border-radius: 4px;
   background-color: var(--color-background);
   padding: 6px;
