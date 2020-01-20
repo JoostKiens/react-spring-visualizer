@@ -1,5 +1,5 @@
 .layout {
-  padding: 20px 20px 220px;
+  padding: 20px 20px 100px;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-areas:
@@ -15,7 +15,7 @@
   grid-gap: 20px;
 
   @media (--viewport-sm) {
-    padding: 30px 30px 230px;
+    padding: 30px 30px 120px;
     grid-gap: 30px;
   }
 
