@@ -53,10 +53,12 @@ export function Documentation() {
                 <h3>Tension</h3>
 
                 <p>
-                  Imagine a fixed spring with a bob on one end and a certain spring length when the spring is at rest. Now pull the bob downwards; the distance between the rest position of the spring and the end of the spring is the tension (<ScrollToImage {...{ imageRef }} />).
+                  Each spring has a certain stiffness. This is also called the spring constant or tension. In the real world it is caused by properties like the material and coil thickness and other.
                 </p>
 
-                <p>The higher the tension, the faster the animation will be.</p>
+                <p>
+                  If the spring's tension is high, the spring will contract more powerfully and the animation will feel snappy.
+                </p>
               </div>
 
               <div>
