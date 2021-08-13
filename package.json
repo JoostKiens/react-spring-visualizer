@@ -1,11 +1,11 @@
 {
   "dependencies": {
-    "@kaliber/build": "0.0.111",
+    "@kaliber/build": "0.0.114",
     "@kaliber/use-render-on-mount": "^1.0.3",
     "d3-ease": "^1.0.6",
     "react-spring": "^8.0.27",
     "svg-catmull-rom-spline": "^0.0.1",
-    "use-clipboard-copy": "^0.1.1",
+    "use-clipboard-copy": "^0.2.0",
     "use-persisted-state": "^0.3.0"
   },
   "scripts": {
