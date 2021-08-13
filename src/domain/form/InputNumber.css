@@ -21,7 +21,10 @@
   padding: 6px;
 }
 
-.numberLabel { display: block; }
+.numberLabel {
+  display: block;
+  user-select: none;
+}
 
 /* from http://danielstern.ca/range.css/ */
 .range {
