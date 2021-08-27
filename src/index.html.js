@@ -6,8 +6,8 @@ import javascript from '@kaliber/build/lib/javascript'
 import polyfill from '@kaliber/build/lib/polyfill'
 import App from '/domain/App?universal'
 
-const title = 'React-spring visualizer, tweak your spring configuration'
-const description = 'The missing visualizer for your react-spring UI animations. Check scale, translate, rotate, opacity & more'
+const title = 'React-spring visualizer, tweak your spring configuration (v8)'
+const description = 'The missing visualizer for your react-spring v8 UI animations. Check scale, translate, rotate, opacity & more'
 
 export default (
   <html lang='en'>
