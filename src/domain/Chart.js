@@ -1,5 +1,4 @@
 import { animated as a, useSpring, useSprings } from 'react-spring'
-import { easeElasticOut } from 'd3-ease'
 import color from '/cssGlobal/color.css'
 import styles from './Chart.css'
 import SVGCatmullRomSpline from 'svg-catmull-rom-spline'
@@ -57,15 +56,20 @@ export function Chart({ values, duration, containerWidth, containerHeight, layou
         <g fill={color.stroke}>
           {trail.map((x, i) => {
             const [cx, cy] = points[i]
-            return <a.circle
-              key={i} r='4'
-              transform={x.progress.to(x => `
-                translate(${cx} ${cy})
-                scale(${easeElasticOut(x)})
-                translate(${-cx} ${-cy})
-              `)}
-              {...{ cx, cy }}
-            />
+            return (
+              <a.circle
+                key={i}
+                r="4"
+                transform={x.progress.to(
+                  (x) => `
+                    translate(${cx} ${cy})
+                    scale(${easeOutBack(x)})
+                    translate(${-cx} ${-cy})
+                  `
+                )}
+                {...{ cx, cy }}
+              />
+            )
           })}
         </g>
 
@@ -108,4 +112,11 @@ function getSvgValues({ values, containerHeight, containerWidth, minValue, maxVa
 
 function mapValueFromRangeToRange({ value, from, to }) {
   return (value - from.min) / (from.max - from.min) * (to.max - to.min) + to.min
+}
+
+function easeOutBack(x) {
+  const c1 = 1.70158
+  const c3 = c1 + 1
+
+  return 1 + c3 * Math.pow(x - 1, 3) + c1 * Math.pow(x - 1, 2)
 }

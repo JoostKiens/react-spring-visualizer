@@ -2,6 +2,7 @@ import  { animated as a, useSpring } from 'react-spring'
 import { useElementSize } from '/machinery/useElementSize'
 import { VisualizerContainer } from './VisualizerContainer'
 import styles from './DefaultVisualizer.css'
+import cx from 'classnames'
 
 export function DefaultVisualizer({ active, config, onClick, display }) {
   const previousConfig = usePrevious(config)

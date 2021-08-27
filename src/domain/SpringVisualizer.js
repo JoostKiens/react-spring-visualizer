@@ -5,6 +5,7 @@ import { useElementSize } from '/machinery/useElementSize'
 import { useTimeout } from '/machinery/useTimeout'
 import { Chart } from './Chart'
 import { animated as a, useSpring } from 'react-spring'
+import cx from 'classnames'
 
 const springDrawingHeight = 500
 
@@ -58,11 +59,12 @@ export function SpringVisualizer({ active, config, onClick, valueAttributes }) {
     <VisualizerContainer layoutClassName={styles.component} {...{ onClick, containerHeight }} ref={componentRef}>
       {isMounted && (
         showChart
-          ? <Chart
-            layoutClassName={styles.chart} values={chartValues.values} duration={chartValues.duration}
-            {...{ containerWidth, containerHeight }}
-          />
-          : <Visualizer {...{ config, valueAttributes, progress, containerHeight }} />
+          ? (
+            <Chart
+              layoutClassName={styles.chart} values={chartValues.values} duration={chartValues.duration}
+              {...{ containerWidth, containerHeight }}
+            />
+          ) : <Visualizer {...{ config, valueAttributes, progress, containerHeight }} />
       )}
     </VisualizerContainer>
   )

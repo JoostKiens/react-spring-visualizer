@@ -2,6 +2,7 @@ import { animated as a, useSpring } from 'react-spring'
 import { ButtonLink } from './form/Button'
 import styles from './Nav.css'
 import color from '/cssGlobal/color.css'
+import cx from 'classnames'
 
 export function Nav({ layoutClassName, display }) {
   const displays = React.useMemo(
