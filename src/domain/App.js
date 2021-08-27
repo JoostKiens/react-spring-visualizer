@@ -57,15 +57,35 @@ export default function App() {
 
   return (
     <div className={styles.app}>
+      <aside className={styles.versionMessage}>
+        <ContentContainer>
+          This is the visualizer for v8 of React-spring. Go to{' '}
+          <a className={styles.link} href="https://react-spring-visualizer.com/">
+            React-spring v9 visualizer
+          </a>
+          .
+        </ContentContainer>
+      </aside>
       <ContentContainer>
         <div className={styles.layout}>
           <Header layoutClassName={styles.header} />
-          <Form handleSubmit={play} layoutClassName={styles.form} {...{ formState, valueAttributes, active }} />
+          <Form
+            handleSubmit={play}
+            layoutClassName={styles.form}
+            {...{ formState, valueAttributes, active }}
+          />
           <div className={styles.visualizer}>
-            {display === 'spring'
-              ? <SpringVisualizer onClick={play} {...{ active, valueAttributes, config }} />
-              : <DefaultVisualizer onClick={play} {...{ active, valueAttributes, config, display }} />
-            }
+            {display === 'spring' ? (
+              <SpringVisualizer
+                onClick={play}
+                {...{ active, valueAttributes, config }}
+              />
+            ) : (
+              <DefaultVisualizer
+                onClick={play}
+                {...{ active, valueAttributes, config, display }}
+              />
+            )}
           </div>
           <Nav layoutClassName={styles.nav} {...{ display }} />
         </div>
