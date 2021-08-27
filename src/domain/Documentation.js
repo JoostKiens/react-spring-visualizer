@@ -37,6 +37,9 @@ export function Documentation() {
                 src={visual}
                 alt='Explanation of components of spring physics'
                 ref={imageRef}
+                width={500}
+                height={500}
+                loading="lazy"
               />
             </div>
             <div className={styles.settings}>

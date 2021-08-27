@@ -16,8 +16,8 @@ const valueAttributes = {
   mass: { min: 0.1, max: 20, step: 0.1 },
   tension: { min: 1, max: 500, step: 1 },
   friction: { min: 1, max: 180, step: 1 },
-  precision: { min: 0.01, max: 1, step: 0.001 },
-  velocity: { min: -50, max: 50, step: 1 }
+  precision: { min: 0.001, max: 1, step: 0.001 },
+  velocity: { min: -50 * 0.001, max: 50 * 0.001, step: 1 * 0.001 },
 }
 
 export default function App() {

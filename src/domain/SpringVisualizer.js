@@ -39,8 +39,9 @@ export function SpringVisualizer({ active, config, onClick, valueAttributes }) {
           performanceRef.current = window.performance.now()
           valuesRef.current = []
         },
-        // @ts-ignore
-        onFrame: ({ progress }) => { valuesRef.current.push(progress) },
+        onChange: ({ value: { progress } }) => {
+          valuesRef.current.push(progress)
+        },
         onRest: () => {
           if (!active) return
           durationRef.current = window.performance.now() - performanceRef.current
@@ -52,8 +53,7 @@ export function SpringVisualizer({ active, config, onClick, valueAttributes }) {
     [active, set, config]
   )
 
-  useTimeout(() => { chartValues && setShowChart(true) }, 360, [chartValues] )
-
+  useTimeout(() => { chartValues?.values.length && setShowChart(true) }, 360, [chartValues] )
   return (
     <VisualizerContainer layoutClassName={styles.component} {...{ onClick, containerHeight }} ref={componentRef}>
       {isMounted && (
@@ -92,7 +92,7 @@ function Visualizer({ config, valueAttributes, progress, containerHeight }) {
         />
       </div>
 
-      <a.span className={styles.progress}>{progress.interpolate(x => `${x.toFixed(2)}`)}</a.span>
+      <a.span className={styles.progress}>{progress.to(x => `${x.toFixed(2)}`)}</a.span>
     </>
   )
 }
@@ -103,7 +103,7 @@ function Bob({ mass, progress, layoutClassName, springLengthAtRest, initialDispl
       className={cx(styles.componentBob, layoutClassName)}
       style={{
         marginTop: springLengthAtRest,
-        transform: progress.interpolate(x => `translateY(${initialDisplacement - initialDisplacement * x}px)`)
+        transform: progress.to(x => `translateY(${initialDisplacement - initialDisplacement * x}px)`)
       }}
     >
       <svg width="140" height="50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 50" className={styles.handle}>
@@ -149,7 +149,7 @@ function Spring({ progress, tension, maxTension, springLengthAtRest, layoutClass
       style={{ transform: `translateY(-${padding}px) scaleX(${tension / maxTension + 0.5})` }}
     >
       <g transform={`translate(0 ${padding})`}>
-        <a.g transform={progress.interpolate(x => `scale(1 ${calcScale(x)})` )}>
+        <a.g transform={progress.to(x => `scale(1 ${calcScale(x)})` )}>
           <path
             d="M1.5 16.538l76.533 14.068M1.967 16.07L78.5 2M1.967 44.117L78.5 58.185M1.967 43.96L78.5 29.892m-77 43.3l76.533 14.069M1.967 72.723L78.5 58.654M1.967 100.771L78.5 114.84M1.967 100.615L78.5 86.546m-77 43.144l76.533 14.069M1.967 129.22L78.5 115.153M1.967 157.269L78.5 171.34M1.967 157.112L78.5 143.044m-77 43.144l76.533 14.07M1.967 185.718L78.5 171.651M1.967 242.06L78.5 227.993M1.967 213.768L78.5 227.836M1.967 213.611L78.5 199.542m-77 72.934l76.533 14.07M1.967 272.006L78.5 257.94M1.967 300.056L78.5 314.124M1.967 243.401L78.5 257.47M1.967 299.9L78.5 285.83m-77 43.3l76.533 14.07M1.967 328.662L78.5 314.593M1.967 356.71L78.5 370.779M1.967 356.554L78.5 342.485m-77 43.144l76.533 14.069M1.967 385.16L78.5 371.091M1.967 413.208L78.5 427.277M1.967 413.052L78.5 398.983m-77 43.144l76.533 14.069M1.967 441.658L78.5 427.59M1.967 498L78.5 483.931M1.967 469.706L78.5 483.775M1.967 469.55L78.5 455.481"
             stroke="#001858" strokeWidth={(tension / maxTension) * 3.5 + 0.5} strokeLinecap="round" strokeLinejoin="round"
