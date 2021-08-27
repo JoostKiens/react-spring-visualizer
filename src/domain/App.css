@@ -56,3 +56,26 @@
 .visualizer { & > * { height: 100%; } }
 .documentation { background-color: var(--color-main); }
 .siteFooter { background-color: var(--color-prussian-blue); }
+
+.versionMessage {
+  font-size: 12px;
+  background-color: var(--color-main);
+  text-align: center;
+  padding: 10px 30px;
+
+  @media screen and (min-height: 930px) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+}
+
+.link {
+  color: currentColor;
+  text-decoration: currentColor wavy underline;
+  text-decoration-skip-ink: none;
+  position: relative;
+  z-index: 0;
+  font-weight: 700;
+}

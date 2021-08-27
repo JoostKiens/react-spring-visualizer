@@ -20,7 +20,7 @@ export function CopyToClipboard({ layoutClassName, config }) {
   const { progress } = useSpring({
     from: { progress: 0 },
     progress: hover ? 1 : 0,
-    config: { mass: 1.9, tension: 180, friction: 28, velocity: -3 }
+    config: { mass: 1.9, tension: 180, friction: 28, velocity: -3 * 0.001 },
   })
 
 
@@ -65,7 +65,7 @@ export function CopyToClipboard({ layoutClassName, config }) {
           className={styles.message}
           aria-hidden
           style={{
-            transform: messageProgress.interpolate(x => `translateY(${ x * -16 }px)`),
+            transform: messageProgress.to(x => `translateY(${ x * -16 }px)`),
             opacity: messageProgress,
           }}
         >
@@ -82,7 +82,7 @@ export function CopyToClipboard({ layoutClassName, config }) {
               <path d="M19 1.5h-9A1.5 1.5 0 008.5 3v2.5H3A1.5 1.5 0 001.5 7v30A1.5 1.5 0 003 38.5h23a1.5 1.5 0 001.5-1.5V7A1.5 1.5 0 0026 5.5h-5.5V3A1.5 1.5 0 0019 1.5z" />
               <rect x="8.5" y="1.5" width="12" height="8" rx="3" />
             </g>
-            <a.g transform={progress.interpolate(x => `scale(${1 - x * 0.2}) translate(${-10 * x} ${3 * x})`)}>
+            <a.g transform={progress.to(x => `scale(${1 - x * 0.2}) translate(${-10 * x} ${3 * x})`)}>
               <path d="M41 24v6h-2v18h2v6h-4a4 4 0 01-4-4v-7h-2v-7h2v-8a4 4 0 014-4h4zM43 24v6h2v18h-2v6h4a4 4 0 004-4v-7h2v-7h-2v-8a4 4 0 00-4-4h-4z" strokeWidth="3" fill={color.buttonText} stroke={color.button} />
             </a.g>
           </g>

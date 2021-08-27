@@ -1,13 +1,16 @@
-import { animated as a, useSpring, useTrail, useChain } from 'react-spring'
-import { easeElasticOut } from 'd3-ease'
+import { animated as a, useSpring, useSprings } from 'react-spring'
 import color from '/cssGlobal/color.css'
 import styles from './Chart.css'
 import SVGCatmullRomSpline from 'svg-catmull-rom-spline'
+import cx from 'classnames'
+
+const fromToProps = {
+  stroke: color.stroke,
+  strokeWidth: 1,
+  strokeDasharray: '3,2',
+}
 
 export function Chart({ values, duration, containerWidth, containerHeight, layoutClassName }) {
-  const pointsAnimationRef = React.useRef(null)
-  const maskAnimationRef = React.useRef(null)
-  const legendAnimationRef = React.useRef(null)
   const minValue = Math.min(...values)
   const maxValue = Math.max(...values)
 
@@ -16,35 +19,23 @@ export function Chart({ values, duration, containerWidth, containerHeight, layou
     [values, containerWidth, containerHeight, minValue, maxValue]
   )
 
-  useChain([pointsAnimationRef, maskAnimationRef, legendAnimationRef])
+  const [{ progress: legendProgress }, legendApi] = useSpring(() => ({
+    progress: 0,
+    config: { tension: 380, friction: 40, clamp: true },
+  }))
 
-  const fromToProps = {
-    stroke: color.stroke,
-    strokeWidth: 1,
-    strokeDasharray: '3,2'
-  }
+  const [{ progress }, maskApi] = useSpring(() => ({
+    progress: 0,
+    config: { tension: 380, friction: 40, clamp: true },
+    onRest: () => { legendApi.start({ progress: 1 }) }
+  }))
 
-  const trail = useTrail(points.length, {
+  const trail = useSprings(points.length, points.map((_, index) => ({
     progress: 1,
     from: { progress: 0 },
-    ref: pointsAnimationRef,
-    config: { duration: 480 }
-  })
-
-  const { progress } = useSpring({
-    progress: 1,
-    delay: 100,
-    from: { progress: 0 },
-    ref: maskAnimationRef,
-    config: { tension: 380, friction: 40, clamp: true }
-  })
-
-  const { legendProgress } = useSpring({
-    from: { legendProgress: 0 },
-    legendProgress: 1,
-    ref: legendAnimationRef,
-    config: { tension: 380, friction: 40, clamp: true }
-  })
+    delay: 10 * index,
+    onRest: () => { maskApi.start({ progress: 1 }) }
+  })))
 
   return (
     <div className={cx(styles.component, layoutClassName)}>
@@ -55,7 +46,7 @@ export function Chart({ values, duration, containerWidth, containerHeight, layou
         <mask id="myMask" maskUnits='userSpaceOnUse'>
           <a.rect
             x='0' y='0'
-            height={containerHeight} width={progress.interpolate(x => containerWidth * x)}
+            height={containerHeight} width={progress.to(x => containerWidth * x)}
             fill="white"
           />
         </mask>
@@ -63,17 +54,22 @@ export function Chart({ values, duration, containerWidth, containerHeight, layou
         <a.path stroke='none' fill={color.secondary} mask="url(#myMask)" {...{ d }} />
 
         <g fill={color.stroke}>
-          {trail.map(({ progress }, i) => {
+          {trail.map((x, i) => {
             const [cx, cy] = points[i]
-            return <a.circle
-              key={i} r='4'
-              transform={progress.interpolate(x => `
-                translate(${cx} ${cy})
-                scale(${easeElasticOut(x)})
-                translate(${-cx} ${-cy})
-              `)}
-              {...{ cx, cy }}
-            />
+            return (
+              <a.circle
+                key={i}
+                r="4"
+                transform={x.progress.to(
+                  (x) => `
+                    translate(${cx} ${cy})
+                    scale(${easeOutBack(x)})
+                    translate(${-cx} ${-cy})
+                  `
+                )}
+                {...{ cx, cy }}
+              />
+            )
           })}
         </g>
 
@@ -116,4 +112,11 @@ function getSvgValues({ values, containerHeight, containerWidth, minValue, maxVa
 
 function mapValueFromRangeToRange({ value, from, to }) {
   return (value - from.min) / (from.max - from.min) * (to.max - to.min) + to.min
+}
+
+function easeOutBack(x) {
+  const c1 = 1.70158
+  const c3 = c1 + 1
+
+  return 1 + c3 * Math.pow(x - 1, 3) + c1 * Math.pow(x - 1, 2)
 }

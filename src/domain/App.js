@@ -16,8 +16,8 @@ const valueAttributes = {
   mass: { min: 0.1, max: 20, step: 0.1 },
   tension: { min: 1, max: 500, step: 1 },
   friction: { min: 1, max: 180, step: 1 },
-  precision: { min: 0.01, max: 1, step: 0.001 },
-  velocity: { min: -50, max: 50, step: 1 }
+  precision: { min: 0.001, max: 1, step: 0.001 },
+  velocity: { min: -50 * 0.001, max: 50 * 0.001, step: 1 * 0.001 },
 }
 
 export default function App() {
@@ -57,15 +57,38 @@ export default function App() {
 
   return (
     <div className={styles.app}>
+      <aside className={styles.versionMessage}>
+        <ContentContainer>
+          This is for <strong>v9</strong> of React-spring. Here is the old{' '}
+          <a
+            className={styles.link}
+            href="https://v8.react-spring-visualizer.com/"
+          >
+            v8 visualizer
+          </a>
+          .
+        </ContentContainer>
+      </aside>
       <ContentContainer>
         <div className={styles.layout}>
           <Header layoutClassName={styles.header} />
-          <Form handleSubmit={play} layoutClassName={styles.form} {...{ formState, valueAttributes, active }} />
+          <Form
+            handleSubmit={play}
+            layoutClassName={styles.form}
+            {...{ formState, valueAttributes, active }}
+          />
           <div className={styles.visualizer}>
-            {display === 'spring'
-              ? <SpringVisualizer onClick={play} {...{ active, valueAttributes, config }} />
-              : <DefaultVisualizer onClick={play} {...{ active, valueAttributes, config, display }} />
-            }
+            {display === 'spring' ? (
+              <SpringVisualizer
+                onClick={play}
+                {...{ active, valueAttributes, config }}
+              />
+            ) : (
+              <DefaultVisualizer
+                onClick={play}
+                {...{ active, valueAttributes, config, display }}
+              />
+            )}
           </div>
           <Nav layoutClassName={styles.nav} {...{ display }} />
         </div>

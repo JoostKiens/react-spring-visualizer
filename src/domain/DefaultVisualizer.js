@@ -2,6 +2,7 @@ import  { animated as a, useSpring } from 'react-spring'
 import { useElementSize } from '/machinery/useElementSize'
 import { VisualizerContainer } from './VisualizerContainer'
 import styles from './DefaultVisualizer.css'
+import cx from 'classnames'
 
 export function DefaultVisualizer({ active, config, onClick, display }) {
   const previousConfig = usePrevious(config)
@@ -31,11 +32,11 @@ function Rotate({ active, layoutClassName, makeSpring }) {
 
   return (
     <div className={cx(styles.componentRotate, layoutClassName)}>
-      <a.span className={styles.progress}>{progress.interpolate(x => `${Math.round(x * 90)}°`)}</a.span>
+      <a.span className={styles.progress}>{progress.to(x => `${Math.round(x * 90)}°`)}</a.span>
       <div className={styles.rotateContainer}>
         <a.div
           className={styles.rotate}
-          style={{ transform: progress.interpolate(x => `rotate(${x * -90}deg)`) }}
+          style={{ transform: progress.to(x => `rotate(${x * -90}deg)`) }}
         />
       </div>
     </div>
@@ -47,10 +48,10 @@ function Scale({ active, layoutClassName, makeSpring }) {
 
   return (
     <div className={cx(styles.componentScale, layoutClassName)}>
-      <a.span className={styles.progress}>{progress.interpolate(x => `${x.toFixed(2)}`)}</a.span>
+      <a.span className={styles.progress}>{progress.to(x => `${x.toFixed(2)}`)}</a.span>
       <a.div
         className={styles.scale}
-        style={{ transform: progress.interpolate(x => `scale(${0.5 + x * 0.5})`) }}
+        style={{ transform: progress.to(x => `scale(${0.5 + x * 0.5})`) }}
       />
       <div className={styles.scaleMax} />
       <div className={styles.scaleMin} />
@@ -65,18 +66,18 @@ function Opacity({ active, layoutClassName, makeSpring }) {
 
   return (
     <div className={cx(styles.componentOpacity, layoutClassName)}>
-      <a.span className={styles.progress}>{progress.interpolate(x => `${Math.round(x * 100)}%`)}</a.span>
+      <a.span className={styles.progress}>{progress.to(x => `${Math.round(x * 100)}%`)}</a.span>
       <div className={styles.opacityContainer}>
         <a.div
           className={styles.opacity}
-          style={{ opacity: progress.interpolate(x => x) }}
+          style={{ opacity: progress.to(x => x) }}
         />
       </div>
       <div className={styles.legend} ref={legendRef}>
         <div className={styles.bar} />
         <a.div
           className={styles.current}
-          style={{ transform: progress.interpolate(x => `translateY(${-3 - x * (height - 6)}px)`) }}
+          style={{ transform: progress.to(x => `translateY(${-3 - x * (height - 6)}px)`) }}
         >
           <svg
             className={styles.currentMarker}
@@ -101,11 +102,11 @@ function Translate({ active, layoutClassName, makeSpring }) {
 
   return (
     <div className={cx(styles.componentTranslate, layoutClassName)} ref={componentRef}>
-      <a.span className={styles.progress}>{progress.interpolate(x => `${x.toFixed(2)}`)}</a.span>
+      <a.span className={styles.progress}>{progress.to(x => `${x.toFixed(2)}`)}</a.span>
       <div className={styles.translateBoundariesBackground} />
       <a.div
         className={styles.translate}
-        style={{ transform: progress.interpolate(x => `translateY(${ -x * height}px)`) }}
+        style={{ transform: progress.to(x => `translateY(${ -x * height}px)`) }}
       />
       <div className={styles.translateBoundariesBorder} />
     </div>
