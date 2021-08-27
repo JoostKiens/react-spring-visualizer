@@ -59,7 +59,7 @@ export default function App() {
     <div className={styles.app}>
       <aside className={styles.versionMessage}>
         <ContentContainer>
-          This is for <strong>v9</strong> of React-spring. Here is the old{' '}
+          This is based on <strong>version 9</strong> of React-spring. Here is the old{' '}
           <a
             className={styles.link}
             href="https://v8.react-spring-visualizer.com/"
