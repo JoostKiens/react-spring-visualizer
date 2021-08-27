@@ -62,7 +62,7 @@ export default function App() {
           This is for the <strong>old version 8</strong> of React-spring. Go to the new {' '}
           <a
             className={styles.link}
-            href="https://v8.react-spring-visualizer.com/"
+            href="https://react-spring-visualizer.com/"
           >
             v9 visualizer
           </a>
